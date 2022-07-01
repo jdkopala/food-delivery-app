@@ -37,6 +37,7 @@ As the logged in admin, I can edit the menu (food_items), because I am in charge
     description TEXT,
     price_cents INTEGER,
     rating SMALLINT
+    thumbnail_url TEXT,
 - past_orders
     id SERIAL PRIMARY KEY,
     user_id REFERENCES users(id),

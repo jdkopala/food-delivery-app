@@ -8,7 +8,7 @@ B GET    /order
 R GET    /order/:id
 E PUT    /order
 A POST   /order
-D DELETE /order
+D POST   /order/delete
 
 B GET    /checkout
 R GET    /checkout/:id

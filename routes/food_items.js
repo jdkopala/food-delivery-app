@@ -1,3 +1,10 @@
+/*
+ * All routes for food_items are defined here
+ * Since this file is loaded in server.js into api/food_items,
+ *   these routes are mounted onto /food_items
+ * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
+ */
+
 const express = require('express');
 const router = express.Router();
 const db = require('./db');

@@ -7,10 +7,11 @@ module.exports = (db) => {
     let query = `SELECT id FROM orders
     ORDER BY id`;
     console.log(query);
-    db.query(query)
+   return db.query(query)
       .then(data => {
         const orders = data.rows;
-        res.json({
+        console.log("data:", data);
+       return res.json({
           orders
         });
       })
@@ -22,4 +23,5 @@ module.exports = (db) => {
           });
       });
   });
+  return router;
 };

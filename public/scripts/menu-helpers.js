@@ -23,3 +23,9 @@ const getUserFavourites = (userId) => {
     return res.rows;
   })
 };
+
+
+module.exports = {
+  getMenuByCategory,
+  getUserFavourites
+}

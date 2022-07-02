@@ -1,15 +1,4 @@
-.user-info {
-  display: flex;
-}
 
-#cart-icon {
-  margin-top: 14px;
-}
-
-.user-login {
-  margin: 10px;
-  font-size: large;
-}
 
 .food-item {
   display: flex;
@@ -17,24 +6,28 @@
 }
 
 .meal-info {
+  display: flex;
   margin: 10px;
+  margin-left: 20px;
   align-content: space-between;
   position:relative;
+  flex-direction: column;
+  flex: 2;
+
+  .meal-price {
+    font-size: 25px;
+  }
 }
 
-.food-description, .food-detail{
-  position: absolute;
-
-}
 .food-name {
-  font-size: large;
+  margin-top: 10px;
+  font-size: 30px;
 }
 
 .food-description {
-  display: contents;
-  top: 0;
-  font-weight: 100;
-  font-size: small;
+  display: flex;
+  font-weight: 300;
+  font-size: 20px;
   padding: 0;
   margin: 0;
 }
@@ -42,11 +35,17 @@
 .food-detail {
   font-size: large;
   display: flex;
-  bottom: 0;
+
+  .prep-time {
+    height: 80px;
+    font-size: 23px;
+  }
 }
 
 #heart {
-  padding-right: 10px;
+  margin-right: 23px;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
 #heart:hover {
@@ -55,12 +54,23 @@
 
 #add-food {
   padding-left: 10px;
+  padding-top: 5px;
 }
 
 #add-food:hover {
   color: rgb(60, 145, 225);
 }
 
-.food-pic {
+.food-img {
   margin: 10px;
+  // height: 35%;
+  // width: 35%;
+  flex: 1;
+  margin-top: 60px;
+  margin-right: 15px;
+
+  .food-pic {
+    width: 100%;
+  }
 }
+

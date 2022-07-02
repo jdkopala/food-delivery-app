@@ -1,3 +1,7 @@
+const express = require('express');
+const router = express.Router();
+const db = require('./db');
+
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT id FROM orders

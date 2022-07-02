@@ -26,16 +26,16 @@ CREATE TABLE food_items (
 
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
-  customer_id REFERENCES users(id) ON DELETE CASCADE,
-  order_date DATE NOT NULL
+  customer_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
+  order_date DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE order_items (
-  order_id REFERENCES orders(id) ON DELETE CASCADE,
-  food_id REFERENCES food_items(id) ON DELETE CASCADE
+  order_id INTEGER REFERENCES orders (id) ON DELETE CASCADE,
+  food_id INTEGER REFERENCES food_items (id) ON DELETE CASCADE
 );
 
 CREATE TABLE user_favourites (
-  customer_id REFERENCES users(id),
-  food_id REFERENCES food_items(id) ON DELETE CASCADE
-)
+  customer_id INTEGER REFERENCES users (id),
+  food_id INTEGER REFERENCES food_items (id) ON DELETE CASCADE
+);

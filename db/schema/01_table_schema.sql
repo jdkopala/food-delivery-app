@@ -16,6 +16,7 @@ CREATE TABLE users (
 CREATE TABLE food_items (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
   prep_time_minutes INTEGER NOT NULL,
   price_cents INTEGER NOT NULL,
   rating SMALLINT,

@@ -7,7 +7,7 @@
 
 const express = require('express');
 const router = express.Router();
-const db = require('./db');
+const db = require('../db/db');
 
 module.exports = () => {
   router.get("/", (req, res) => {
@@ -24,4 +24,4 @@ module.exports = () => {
       });
   });
   return router;
-}
+};

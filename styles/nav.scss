@@ -1,0 +1,89 @@
+nav {
+  display: flex;
+  border-bottom: 2px solid rgb(110, 110, 104);
+  background: rgb(163, 208, 219);
+  background: linear-gradient(
+    227deg,
+    rgba(163, 208, 219, 1) 0%,
+    rgba(163, 176, 219, 1) 20%,
+    rgba(163, 173, 219, 1) 34%,
+    rgba(163, 219, 208, 1) 59%,
+    rgba(163, 208, 219, 1) 74%,
+    rgba(163, 208, 219, 1) 100%
+  );
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Lobster', cursive;
+  margin: 10px;
+  font-size: x-large;
+}
+
+.dropdown-menu {
+  display: flex;
+}
+
+.select-menu{
+  max-width: 20vw;
+  margin: 15px;
+}
+
+.select-btn {
+  display: flex;
+	height: 55px;
+	background: #fff;
+	padding: 8px;
+	font-size: 18px;
+	font-weight: 300;
+	border-radius: 8px;
+	align-items: center;
+	cursor: pointer;
+	justify-content: space-between;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.btn-text {
+  font-size: small;
+}
+.options {
+  position: absolute;
+  z-index: 1;
+  width: 20vw;
+  overflow-y: auto;
+  max-width: 150px;
+  padding: 2px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-weight: 300;
+  background: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: small;
+  animation-name: fadeInDown;
+	-webkit-animation-name: fadeInDown;
+	animation-duration: 0.35s;
+	animation-fill-mode: both;
+	-webkit-animation-duration: 0.35s;
+	-webkit-animation-fill-mode: both;
+
+}
+
+.option {
+  display: flex;
+  height: 55px;
+  cursor: pointer;
+  padding: 0 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+}
+
+.option:hover {
+  background: #f8f8f8;
+}
+
+#select-arrow {
+  font-size: small;
+	margin-left: 5px;
+  margin-top: 5px;
+}

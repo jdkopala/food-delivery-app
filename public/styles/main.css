@@ -19,13 +19,13 @@
 .meal-info {
   margin: 10px;
   align-content: space-between;
-  position:relative;
+  position: relative;
 }
 
-.food-description, .food-detail{
+.food-description, .food-detail {
   position: absolute;
-
 }
+
 .food-name {
   font-size: large;
 }
@@ -50,7 +50,7 @@
 }
 
 #heart:hover {
-  color: rgb(244, 97, 97);
+  color: #f46161;
 }
 
 #add-food {
@@ -58,7 +58,7 @@
 }
 
 #add-food:hover {
-  color: rgb(60, 145, 225);
+  color: #3c91e1;
 }
 
 .food-pic {

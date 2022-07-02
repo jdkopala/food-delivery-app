@@ -1,21 +1,17 @@
-// See: https://sass-lang.com/
-
-
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-
 /*
  * Global layout
  */
-
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   margin: 0;
 }

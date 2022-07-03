@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
   $('.select-btn').on('click', function () {
-    if ($('.options').is(":hidden")) {
+    if ($('.options').is(':hidden')) {
       $('.options').slideDown('slow');
     } else {
       $('.options').slideUp();
@@ -10,5 +10,7 @@ $(document).ready(function () {
   });
 
   
+
+
 
 })

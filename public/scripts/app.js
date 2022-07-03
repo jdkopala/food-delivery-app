@@ -1,5 +1,8 @@
-// Client facing scripts here
+const { loadMenu } = require("./menu-helpers");
+
 $(document).ready(function () {
+
+  loadMenu();
 
   $('.select-btn').on('click', function () {
     if ($('.options').is(':hidden')) {

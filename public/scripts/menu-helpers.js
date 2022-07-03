@@ -24,6 +24,13 @@ const getUserFavourites = (userId) => {
   })
 };
 
+const loadMenu = () => {
+  $.get("/food_items")
+    .then((data) => {
+      $('#tweets-container').empty(),
+      renderTweets(data);
+    });
+};
 
 module.exports = {
   getMenuByCategory,

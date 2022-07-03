@@ -35,20 +35,23 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const food_items = require("./routes/food_items");
-const order_items = require("./routes/order_items");
-const orders = require("./routes/orders");
+const foodItemsRouter = require("./routes/food_items");
+const orderItemsRouter = require("./routes/order_items");
+const ordersRouter = require("./routes/orders");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/food_items", food_items(db));
-app.use("/order_items", order_items(db));
-app.use("/orders", orders(db));
+app.use("/food_items", foodItemsRouter(db));
+app.use("/order_items", orderItemsRouter(db));
+app.use("/orders", ordersRouter(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
+// When you land on the main page below
+// It should auto populate with the entire menu
 
 app.get("/", (req, res) => {
   res.render("index");

@@ -9,7 +9,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
 
-module.exports = () => {
+module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT * FROM food_items`;
     db.query(query)

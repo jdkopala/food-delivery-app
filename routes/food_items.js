@@ -9,7 +9,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
 
-module.exports = () => {
+module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT * FROM food_items`;
     db.query(query)
@@ -22,6 +22,19 @@ module.exports = () => {
           .status(500)
           .json({ error: err.message });
       });
+  });
+
+  router.get("/:category", (req, res) => {
+    let category = req.params.category;
+    return db.query(`
+    SELECT *
+    FROM food_items
+    WHERE menu_category = $1;
+    `, [category])
+    .then((data) => {
+      console.log(data.rows);
+      res.json(data.rows);
+    })
   });
   return router;
 };

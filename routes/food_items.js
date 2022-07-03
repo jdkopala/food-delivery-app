@@ -23,5 +23,18 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.get("/:category", (req, res) => {
+    let category = req.params.category;
+    return db.query(`
+    SELECT *
+    FROM food_items
+    WHERE menu_category = $1;
+    `, [category])
+    .then((data) => {
+      console.log(data.rows);
+      res.json(data.rows);
+    })
+  });
   return router;
 };

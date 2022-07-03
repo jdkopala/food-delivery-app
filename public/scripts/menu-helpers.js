@@ -1,43 +1,30 @@
-const db = require('../../db/db.js')
 
-const getMenuByCategory = (category) => {
-  return db.query(`
-  SELECT *
-  FROM food_items
-  WHERE menu_category = $1;
-  `, [category])
-    .then((res) => {
-      console.log(res.rows);
-      return res.rows;
-    })
-};
-
-const getUserFavourites = (userId) => {
-  return db.query(`
-  SELECT *
-  FROM user_favourites
-  WHERE user_id = $1;
-  `, [userId])
-  .then((res) => {
-    console.log(res.rows);
-    return res.rows;
-  })
-};
+// const getUserFavourites = (userId) => {
+//   return db.query(`
+//   SELECT *
+//   FROM user_favourites
+//   WHERE user_id = $1;
+//   `, [userId])
+//   .then((res) => {
+//     console.log(res.rows);
+//     return res.rows;
+//   })
+// };
 
 const loadMenu = () => {
   $.get("/food_items")
     .then((data) => {
       console.log(data),
-      renderMenu(data);
+      renderMenu(data.food_items);
     });
 };
 
-const renderMenu = (data) => {
-  $('#main-page');
-  for (let d of data) {
-    let $meal = createMenuElement(d);
-    $("#main-page").prepend($meal); // Put the meal in the container on the page
-  }
+const loadCategory = (category) => {
+  $.get(`/food_items/${category}`)
+    .then((data) => {
+      console.log(data),
+      renderMenu(data);
+    });
 };
 
 // Create HTML element and inject meal data so it renders on the page
@@ -67,11 +54,11 @@ const createMenuElement = (mealData) => {
   return $meal;
 };
 
-
-module.exports = {
-  getMenuByCategory,
-  getUserFavourites,
-  loadMenu,
-  createMenuElement,
-  renderMenu
+const renderMenu = (data) => {
+  $('.main-page').empty();
+  for (let d of data) {
+    console.log(d)
+    let $meal = createMenuElement(d);
+    $(".main-page").prepend($meal); // Put the meal in the container on the page
+  }
 };

@@ -1,0 +1,98 @@
+nav {
+  display: flex;
+  border-bottom: 2px solid #6e6e68;
+  background: #a3d0db;
+  background: linear-gradient(227deg, #a3d0db 0%, #a3b0db 20%, #a3addb 34%, #a3dbd0 59%, #a3d0db 74%, #a3d0db 100%);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: "Lobster", cursive;
+  margin: 10px;
+  font-size: 40px;
+  margin-left: 20px;
+}
+
+.dropdown-menu {
+  display: flex;
+}
+
+.select-menu {
+  margin: 15px;
+}
+
+.select-btn {
+  display: flex;
+  height: 55px;
+  background: #fff;
+  padding: 8px;
+  font-weight: 400;
+  border-radius: 8px;
+  width: 30vw;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-text {
+  font-size: 23px;
+}
+
+.options {
+  position: absolute;
+  z-index: 1;
+  width: 30vw;
+  overflow-y: auto;
+  padding: 2px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-weight: 400;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 23px;
+  animation-name: fadeInDown;
+  -webkit-animation-name: fadeInDown;
+  animation-duration: 0.35s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.35s;
+  -webkit-animation-fill-mode: both;
+  display: none;
+}
+
+.option {
+  display: flex;
+  height: 55px;
+  cursor: pointer;
+  padding: 0 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+}
+
+.option:hover {
+  background: #a3d0db;
+  background: linear-gradient(227deg, #c9e2e8 0%, #c9e2db 20%, #c9e2db 34%, #c9e2d0 59%, #c9e2db 74%, #c9e2db 100%);
+}
+
+#select-arrow {
+  font-size: medium;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.user-info {
+  display: flex;
+  font-size: 30px;
+}
+
+#cart-icon {
+  margin-top: 18px;
+  margin-right: 5px;
+}
+
+.user-login {
+  margin: 10px;
+  margin-right: 15px;
+}

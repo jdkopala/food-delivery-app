@@ -2,19 +2,88 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Happy Eats</title>
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
 
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- External font from Google Lobster -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,400;1,300&family=Source+Sans+Pro:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+  <nav class="nav">
+    <div class="nav-logo">Happy Eats</div>
+
+    <div class="select-menu">
+      <div class="select-btn">
+        <span class="btn-text" >Currently Craving?</span>
+        <i class="fa-solid fa-angle-down" id="select-arrow"></i>
+      </div>
+
+      <ul class="options">
+        <li class="option">
+           <span class="option-food" id="breakfast">Breakfast</span>
+        </li>
+
+        <li class="option">
+          <span class="option-food" id="soup">Soups and Salads</span>
+        </li>
+        <li class="option">
+          <span class="option-food" id="appetizer">Appetizers</span>
+        </li>
+        <li class="option">
+          <span class="option-food" id="main-entrees">Main Entrees</span>
+        </li>
+        <li class="option">
+          <span class="option-food" id="handhelds">Handhelds</span>
+        </li>
+
+        <li class="option">
+          <span class="option-food" id="all-items">All Menu Options</span>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="user-info">
+      <i class="fa-solid fa-utensils" id="cart-icon"></i>
+      <div class="user-login">Login in</div>
+    </div>
+  </nav>
+
+  <main class="main-page">
+    <article class="food-item">
+
+      <div class="meal-info">
+        <div class="food-name">Roll Combo (12pcs)</div>
+        <div class="meal-price">$12.99</div>
+        <div class="food-description">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit excepturi culpa corporis iusto laborum. Harum est praesentium unde!</p>
+        </div>
+
+        <div class="food-detail">
+          <i class="fa-solid fa-heart" id="heart"></i>
+          <div class="prep-time">prep-time: 10 mins</div>
+          <i class="fa-solid fa-cart-shopping" id="add-food"></i>
+        </div>
+      </div>
+
+      <div class="food-img">
+        <img class="food-pic" src="https://questionjapan.com/wp-content/uploads/2019/09/japanese-food.jpg" >
+      </div>
+    </article>
+
+  </main>
+
 </body>
 
 </html>

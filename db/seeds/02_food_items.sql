@@ -3,7 +3,7 @@ VALUES ('Breakfast Plate', 'Two eggs, Two slices of bacon, two slices of toast a
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
 VALUES('Breakfast Sandwich', 'Fried egg on a toasted bun with cheddar cheese and bacon. Served with hashbrowns', 10, 999, 4, 'Breakfast', null);
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
-VALUES ('Won Ton Soup', 'Hand-wrapped won tons with green onions', 10, 699, 4.5, 'Soups and salads', null);
+VALUES ('Won Ton Soup', 'Hand-wrapped won tons with green onions', 10, 699, 4.5, 'Soups and Salads', null);
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
 VALUES ('Caesar Salad', 'Crisp romaine lettuce, parmesan cheese and in-house made croutons with creamy caesar dressing', 8, 1199, 5, 'Soups and Salads', null);
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)

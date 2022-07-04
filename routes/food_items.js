@@ -33,7 +33,6 @@ module.exports = (db) => {
     ORDER BY price_cents DESC;
     `, [category])
     .then((data) => {
-      console.log(data.rows);
       res.json(data.rows);
     })
   });

@@ -29,11 +29,11 @@ const loadCategory = (category) => {
 
 // Create HTML element and inject meal data so it renders on the page
 const createMenuElement = (mealData) => {
-  let $meal = (
-    `<article class="food-item">
+  let $meal = (`
+  <article class="food-item" data-order-object='${JSON.stringify(mealData)}'>
 
     <div class="meal-info">
-      <div class="food-name">${mealData.name}</div>
+      <div class="food-name" id='food-name'>${mealData.name}</div>
       <div class="meal-price">$${mealData.price_cents / 100}</div>
       <div class="food-description">
         <p>${mealData.description}</p>
@@ -42,7 +42,7 @@ const createMenuElement = (mealData) => {
       <div class="food-detail">
         <i class="fa-solid fa-heart" id="heart"></i>
         <div class="prep-time">prep-time: ${mealData.prep_time_minutes} mins</div>
-        <i class="fa-solid fa-cart-shopping" id="add-food"></i>
+        <i class="fa-solid fa-cart-shopping add-food"></i>
       </div>
     </div>
 
@@ -57,8 +57,14 @@ const createMenuElement = (mealData) => {
 const renderMenu = (data) => {
   $('.main-page').empty();
   for (let d of data) {
-    console.log(d)
     let $meal = createMenuElement(d);
     $(".main-page").prepend($meal); // Put the meal in the container on the page
   }
+
+  $('.add-food').on('click', (e) => {
+    let addMeal = $(e.target).parent().parent().parent().data().orderObject;
+    currentOrder.push(addMeal);
+    let currentTotal = Number($('#cart-total').text());
+    $('#cart-total').text(currentTotal + 1);
+  })
 };

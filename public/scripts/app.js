@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-
+  let currentOrder = [];
   loadMenu();
 
   $('.select-btn').on('click', function () {
@@ -53,5 +53,15 @@ $(document).ready(function () {
     loadMenu();
   });
 
+  $('#cart-button').on('mouseover', () => {
+    $('#cart-button').css('cursor', 'pointer')
+  })
+
+  $('#cart-button').on('click', () => {
+    console.log("BEEP")
+    $.get('/checkout', (req, res) => {
+      res.render('checkout')
+    })
+  });
 
 })

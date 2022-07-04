@@ -55,6 +55,11 @@ $(document).ready(function () {
 
   $('#cart-button').on('mouseover', () => {
     $('#cart-button').css('cursor', 'pointer')
-  });
+  })
+  ;
+
+  $('#cart-button').on('click', (currentOrder) => {
+    generateCart(currentOrder);
+  })
 
 });

@@ -57,7 +57,6 @@ const createMenuElement = (mealData) => {
 const renderMenu = (data) => {
   $('.main-page').empty();
   for (let d of data) {
-    console.log(d)
     let $meal = createMenuElement(d);
     $(".main-page").prepend($meal); // Put the meal in the container on the page
   }

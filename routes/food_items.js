@@ -11,7 +11,7 @@ const db = require('../db/db');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM food_items`;
+    let query = `SELECT * FROM food_items ORDER BY price_cents DESC;`;
     db.query(query)
       .then(data => {
         const food_items = data.rows;
@@ -29,7 +29,8 @@ module.exports = (db) => {
     return db.query(`
     SELECT *
     FROM food_items
-    WHERE menu_category = $1;
+    WHERE menu_category = $1
+    ORDER BY price_cents DESC;
     `, [category])
     .then((data) => {
       console.log(data.rows);

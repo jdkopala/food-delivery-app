@@ -39,7 +39,7 @@ const generateCart = (currentOrder) => {
 
     <div class="order-total">Order Total $${orderTotal / 100}</div>
 
-    <div id="checkout-button">Checkout</div>
+    <div id="checkout-button">Comfirm your orders</div>
   </article>
   `
 

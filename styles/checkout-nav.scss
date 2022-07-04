@@ -50,7 +50,7 @@ nav {
   font-size: 25px;
 }
 
-.prep-time {
+.prep-time-checkout {
   margin: 35px;
   display: flex;
   justify-content: center;
@@ -96,13 +96,13 @@ nav {
   padding-right: 10px;
 }
 
-.order-total, #checkout {
+.order-total, #checkout-button {
   display: flex;
   justify-content: center;
   margin: 20px 45px 20px 45px;
 }
 
-#checkout {
+#checkout-button {
   border-radius: 15px;
   background-color: rgba(163, 208, 219, 1);
   margin-left: 200px;

@@ -1,6 +1,6 @@
+let currentOrder = [];
 
 $(document).ready(function () {
-  let currentOrder = [];
   loadMenu();
 
   $('.select-btn').on('click', function () {
@@ -55,10 +55,9 @@ $(document).ready(function () {
 
   $('#cart-button').on('mouseover', () => {
     $('#cart-button').css('cursor', 'pointer')
-  })
-  ;
+  });
 
-  $('#cart-button').on('click', (currentOrder) => {
+  $('#cart-button').on('click', () => {
     generateCart(currentOrder);
   })
 

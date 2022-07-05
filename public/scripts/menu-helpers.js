@@ -42,7 +42,7 @@ const createMenuElement = (mealData) => {
       </div>
 
       <div class="food-detail">
-        <i class="fa-solid fa-heart" id="heart"></i>
+        <i class="fa-solid fa-heart heart-food" id="heart"></i>
         <div class="prep-time">prep-time: ${mealData.prep_time_minutes} mins</div>
         <i class="fa-solid fa-cart-shopping add-food"></i>
       </div>
@@ -67,5 +67,15 @@ const renderMenu = (data) => {
     currentOrder.push(addMeal);
     let currentTotal = Number($('#cart-total').text());
     $('#cart-total').text(currentTotal + 1);
-  })
+  });
+
+  $('.heart-food').on('click', (e) => {
+    let addMeal = $(e.target).parent().parent().parent().data().orderObject;
+    console.log(addMeal);
+    if (favourites.includes(addMeal)) {
+      alert('Already saved to your favourites!');
+    } else {
+      favourites.push(addMeal);
+    };
+  });
 };

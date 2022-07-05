@@ -1,6 +1,9 @@
 // Customer cart object
 let currentOrder = [];
 
+// Customer favourites
+let favourites = [];
+
 $(document).ready(function () {
   loadMenu();
 
@@ -58,6 +61,15 @@ $(document).ready(function () {
     $('.options').slideUp();
     $('.checkout-container').hide();
     loadMenu();
+  });
+
+  $('#favourites').on('click', function () {
+    let foodOption = $('#favourites').children().text();
+    $('.btn-text').text(foodOption);
+    $('.options').slideUp();
+    $('.checkout-container').hide();
+    $('.main-page').empty();
+    renderMenu(favourites);
   });
 
   $('#cart-button').on('mouseover', () => {

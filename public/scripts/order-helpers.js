@@ -39,9 +39,23 @@ const generateCart = (currentOrder) => {
 
     <div class="order-total">Order Total $${orderTotal / 100}</div>
 
-    <div id="checkout-button">Comfirm your orders</div>
+    <a href='#' id="checkout-button">Place your order</a>
   </article>
   `
 
-  $('.main-page').prepend(checkout);
+  $('.main-page').append(checkout);
+};
+
+const generateSMS = (currentOrder) => {
+  let prepTime = 0;
+  let orderTotal = 0;
+  let messageToCustomer =''
+  for (let d of currentOrder) {
+    prepTime += d.prep_time_minutes;
+    orderTotal += d.price_cents;
+  }
+  messageToCustomer += `Thank you for placing your order at Happy Eats! Your total is $${orderTotal/100} and your order will be ready for pickup in approximately ${prepTime} minutes. Please pay for your order when you come to pick it up, thank you!`
+  return messageToCustomer;
+
+
 };

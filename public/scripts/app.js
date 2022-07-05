@@ -1,3 +1,4 @@
+
 let currentOrder = [];
 
 $(document).ready(function () {
@@ -15,6 +16,7 @@ $(document).ready(function () {
     let foodOption = $('#breakfast').children().text();
     $('.btn-text').text(foodOption);
     $('.options').slideUp();
+    $('.checkout-container').hide();
     loadCategory(foodOption);
   });
 
@@ -22,6 +24,7 @@ $(document).ready(function () {
     let foodOption = $('#soup').children().text();
     $('.btn-text').text(foodOption);
     $('.options').slideUp();
+    $('.checkout-container').hide();
     loadCategory(foodOption);
   });
 
@@ -29,6 +32,7 @@ $(document).ready(function () {
     let foodOption = $('#appetizer').children().text();
     $('.btn-text').text(foodOption);
     $('.options').slideUp();
+    $('.checkout-container').hide();
     loadCategory(foodOption);
   });
 
@@ -36,6 +40,7 @@ $(document).ready(function () {
     let foodOption = $('#main-entrees').children().text();
     $('.btn-text').text(foodOption);
     $('.options').slideUp();
+    $('.checkout-container').hide();
     loadCategory("Entrees");
   });
 
@@ -43,6 +48,7 @@ $(document).ready(function () {
     let foodOption = $('#handhelds').children().text();
     $('.btn-text').text(foodOption);
     $('.options').slideUp();
+    $('.checkout-container').hide();
     loadCategory(foodOption);
   });
 
@@ -50,6 +56,7 @@ $(document).ready(function () {
     let foodOption = $('#all-items').children().text();
     $('.btn-text').text(foodOption);
     $('.options').slideUp();
+    $('.checkout-container').hide();
     loadMenu();
   });
 
@@ -57,8 +64,30 @@ $(document).ready(function () {
     $('#cart-button').css('cursor', 'pointer')
   });
 
+  $('.nav-logo').on('mouseover', () => {
+    $('.nav-logo').css('cursor', 'pointer')
+  });
+
+  $('.nav-logo').on('click', () => {
+    loadMenu();
+  });
+
   $('#cart-button').on('click', () => {
     generateCart(currentOrder);
   })
 
 });
+
+$(document).on('click', '#checkout-button', function() {
+    let messageToCustomer = generateSMS(currentOrder);
+
+    $.ajax({
+      url: "http://localhost:8080/sms/",
+      method: 'POST',
+      data:  { messageToCustomer }
+    })
+    .then((data) => {
+      console.log(data)
+      document.location.href = 'http://localhost:8080/'
+    })
+})

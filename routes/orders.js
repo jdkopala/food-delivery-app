@@ -5,13 +5,16 @@ const db = require('../db/db');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT id FROM orders
-    ORDER BY id`;
+    let query = `SELECT orders.*, users.name
+    FROM orders
+    JOIN users ON users.id = orders.customer_id
+    ORDER BY id
+    `;
     console.log(query);
    return db.query(query)
       .then(data => {
         const orders = data.rows;
-        console.log("data:", data);
+        // console.log("data:", data.rows);
        return res.json({
           orders
         });

@@ -1,9 +1,12 @@
 // Customer cart object
 let currentOrder = [];
 
+// Customer favourites
+let favourites = [];
+
 $(document).ready(function () {
   loadMenu();
-
+  // Interaction and animation for menu options dropdown
   $('.select-btn').on('click', function () {
     if ($('.options').is(':hidden')) {
       $('.options').slideDown('slow');
@@ -12,6 +15,7 @@ $(document).ready(function () {
     }
   });
 
+  // Each of these pulls the appropriate category of food from the database and displays it on our page
   $('#breakfast').on('click', function () {
     let foodOption = $('#breakfast').children().text();
     $('.btn-text').text(foodOption);
@@ -59,7 +63,16 @@ $(document).ready(function () {
     $('.checkout-container').hide();
     loadMenu();
   });
-
+  // This one pulls favourites marked by the user and displays them on the main page
+  $('#favourites').on('click', function () {
+    let foodOption = $('#favourites').children().text();
+    $('.btn-text').text(foodOption);
+    $('.options').slideUp();
+    $('.checkout-container').hide();
+    $('.main-page').empty();
+    renderMenu(favourites);
+  });
+  // Alter the cursor to make it obvious the logo and cart buttons are clickable
   $('#cart-button').on('mouseover', () => {
     $('#cart-button').css('cursor', 'pointer')
   });
@@ -67,14 +80,14 @@ $(document).ready(function () {
   $('.nav-logo').on('mouseover', () => {
     $('.nav-logo').css('cursor', 'pointer')
   });
-
+  // When a user clicks on the logo, it returns to the main menu
   $('.nav-logo').on('click', () => {
     loadMenu();
   });
-
+  // Clicking on the cart button brings up the generated checkout pagea
   $('#cart-button').on('click', () => {
     generateCart(currentOrder);
-  })
+  });
 
 });
 
@@ -88,10 +101,45 @@ $(document).on('click', '#checkout-button', function() {
         data:  { messageToCustomer }
       })
       .then((data) => {
-        console.log(data)
+        console.log(data);
         document.location.href = 'http://localhost:8080/'
       })
     } else {
-      alert('You cart is empty');
+      $('.warning-msg').text('Your cart is empty. Please select a meal.');
+      setTimeout(() => {
+        $('.error-msg').slideUp();
+      }, 5000)
+      return $('.error-msg').slideDown();
     }
 })
+
+
+$(document).on('click', '.add-food',(e) => {
+  let addMeal = $(e.target).parent().parent().parent().data().orderObject;
+  currentOrder.push(addMeal);
+  let currentTotal = Number($('#cart-total').text());
+  $('#cart-total').text(currentTotal + 1);
+  $(e.target).addClass('bounce');
+  $(e.target).addClass('clicks');
+  setTimeout(() => {
+    $(e.target).removeClass('bounce');
+  }, 3000);
+});
+
+$(document).on('click', '.heart-food',(e) => {
+  let addMeal = $(e.target).parent().parent().parent().data().orderObject;
+  const checkForFavourite = (addMeal) => {
+    for (let f of favourites) {
+      if (addMeal.id === f.id) {
+        alert('Already saved to your favourites!');
+        return true;
+      }
+    }
+  }
+  if (!checkForFavourite(addMeal)) {
+    favourites.push(addMeal);
+  }
+  $(e.target).addClass('bounce');
+  $(e.target).addClass('clicked');
+
+});

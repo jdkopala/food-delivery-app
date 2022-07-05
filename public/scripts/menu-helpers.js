@@ -42,7 +42,7 @@ const createMenuElement = (mealData) => {
       </div>
 
       <div class="food-detail">
-        <i class="fa-solid fa-heart" id="heart"></i>
+        <i class="fa-solid fa-heart heart-food heart"></i>
         <div class="prep-time">prep-time: ${mealData.prep_time_minutes} mins</div>
         <i class="fa-solid fa-cart-shopping add-food"></i>
       </div>
@@ -61,11 +61,4 @@ const renderMenu = (data) => {
     let meal = createMenuElement(d);
     $(".main-page").prepend(meal); // Put the meal in the container on the page
   }
-
-  $('.add-food').on('click', (e) => {
-    let addMeal = $(e.target).parent().parent().parent().data().orderObject;
-    currentOrder.push(addMeal);
-    let currentTotal = Number($('#cart-total').text());
-    $('#cart-total').text(currentTotal + 1);
-  })
 };

@@ -8,6 +8,14 @@ const generateCart = (currentOrder) => {
   }
   let checkout =`
   <article class="checkout-content">
+
+    <div class="error-msg">
+      <div class ="error-display">
+        <i class="fa-solid fa-triangle-exclamation fa-fade" id="warning-icon"></i>
+        <p class ="warning-msg"></p>
+      </div>
+    </div>
+
     <div class="prep-time-checkout">
       <i class="fa-solid fa-clock" id="clock"></i>
       <div >Estimated Total Preparation Time: ${prepTime} mins</div>

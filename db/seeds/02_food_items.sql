@@ -17,7 +17,7 @@ VALUES ('Tater Tots', 'Crispy on the outside and soft in the middle. Served with
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
 VALUES ('French Fries', 'More delicious than ever, our piping hot, salted french fries are golden on the outside and fluffy on the inside.', 10, 899, 5, 'Appetizers', 'https://i.imgur.com/FRP1l5W.png');
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
-VALUES ('Deep-Friend Pickles', 'Panko breaded dill pickle spears, coated in parmesan cheese and served with ranch. Perfect for sharing!', 14, 1299, 5, 'Appetizers', 'https://i.imgur.com/Pbn8bYP.png');
+VALUES ('Deep-Fried Pickles', 'Panko breaded dill pickle spears, coated in parmesan cheese and served with ranch. Perfect for sharing!', 14, 1299, 5, 'Appetizers', 'https://i.imgur.com/Pbn8bYP.png');
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
 VALUES ('Poutine', 'Golden thick-cut french fries perfectly baked with house-made gravy and mozzarella.', 15, 1199, 5, 'Appetizers', 'https://i.imgur.com/HzckHDR.png');
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)

@@ -13,8 +13,9 @@
 
 const loadMenu = () => {
   $.get("/food_items")
-    .then((data) => {
-      console.log(data),
+  .then((data) => {
+    $('.main-page').empty();
+      console.log(data);
       renderMenu(data.food_items);
     });
 };
@@ -22,7 +23,8 @@ const loadMenu = () => {
 const loadCategory = (category) => {
   $.get(`/food_items/${category}`)
     .then((data) => {
-      console.log(data),
+      $('.main-page').empty();
+      console.log(data);
       renderMenu(data);
     });
 };
@@ -55,10 +57,9 @@ const createMenuElement = (mealData) => {
 };
 
 const renderMenu = (data) => {
-  $('.main-page').empty();
   for (let d of data) {
-    let $meal = createMenuElement(d);
-    $(".main-page").prepend($meal); // Put the meal in the container on the page
+    let meal = createMenuElement(d);
+    $(".main-page").prepend(meal); // Put the meal in the container on the page
   }
 
   $('.add-food').on('click', (e) => {

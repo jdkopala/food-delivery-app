@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
+//const sendMsg = require('../scripts/send-sms');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {

@@ -93,13 +93,12 @@ $(document).ready(function () {
 });
 
 $(document).on('click', '#checkout-button', function() {
-    let messageToCustomer = generateSMS(currentOrder);
 
     if (currentOrder.length > 0) {
       $.ajax({
         url: "http://localhost:8080/orders/",
         method: 'POST',
-        data:  { messageToCustomer, currentOrder }
+        data:  { currentOrder }
       })
       .then((data) => {
         console.log(data);

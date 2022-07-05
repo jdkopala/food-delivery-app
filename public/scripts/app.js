@@ -87,6 +87,7 @@ $(document).ready(function () {
   // Clicking on the cart button brings up the generated checkout pagea
   $('#cart-button').on('click', () => {
     generateCart(currentOrder);
+    $('.place-order').hide();
   });
 
 });
@@ -102,7 +103,17 @@ $(document).on('click', '#checkout-button', function() {
       })
       .then((data) => {
         console.log(data);
-        document.location.href = 'http://localhost:8080/'
+        currentOrder = [];
+        $('.place-order-msg').text('Your order has been sent to the chef, you will receive a response soon 💙');
+        setTimeout(() => {
+          $('.place-order').slideUp();
+        }, 8000)
+        $('#cart-total').text(0);
+        $('div.order-item').empty();
+        $('.place-order').slideDown();
+        setTimeout(() => {
+          document.location.href = 'http://localhost:8080/'
+        }, 10000);
       })
     } else {
       $('.warning-msg').text('Your cart is empty. Please select a meal.');

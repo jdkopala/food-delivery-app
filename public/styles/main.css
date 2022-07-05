@@ -112,3 +112,16 @@ body {
 .clicks {
   color: #3c91e1;
 }
+
+.place-order {
+  display: none;
+  border: 5px solid #a3d0db;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 140px 55px 20px 55px;
+}
+.place-order .place-order-msg {
+  display: flex;
+  justify-content: center;
+}

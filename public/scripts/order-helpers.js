@@ -16,6 +16,10 @@ const generateCart = (currentOrder) => {
       </div>
     </div>
 
+    <div class="place-order">
+        <p class ="place-order-msg"></p>
+    </div>
+
     <div class="prep-time-checkout">
       <i class="fa-solid fa-clock" id="clock"></i>
       <div >Estimated Total Preparation Time: ${prepTime} mins</div>

@@ -87,7 +87,7 @@ $(document).ready(function () {
   // Clicking on the cart button brings up the generated checkout pagea
   $('#cart-button').on('click', () => {
     generateCart(currentOrder);
-  })
+  });
 
 });
 
@@ -101,11 +101,15 @@ $(document).on('click', '#checkout-button', function() {
         data:  { messageToCustomer }
       })
       .then((data) => {
-        console.log(data)
+        console.log(data);
         document.location.href = 'http://localhost:8080/'
       })
     } else {
-      alert('You cart is empty');
+      $('.warning-msg').text('Your cart is empty. Please select a meal.');
+      setTimeout(() => {
+        $('.error-msg').slideUp();
+      }, 5000)
+      return $('.error-msg').slideDown();
     }
 })
 
@@ -115,6 +119,11 @@ $(document).on('click', '.add-food',(e) => {
   currentOrder.push(addMeal);
   let currentTotal = Number($('#cart-total').text());
   $('#cart-total').text(currentTotal + 1);
+  $(e.target).addClass('bounce');
+  $(e.target).addClass('clicks');
+  setTimeout(() => {
+    $(e.target).removeClass('bounce');
+  }, 3000);
 });
 
 $(document).on('click', '.heart-food',(e) => {
@@ -130,4 +139,7 @@ $(document).on('click', '.heart-food',(e) => {
   if (!checkForFavourite(addMeal)) {
     favourites.push(addMeal);
   }
+  $(e.target).addClass('bounce');
+  $(e.target).addClass('clicked');
+
 });

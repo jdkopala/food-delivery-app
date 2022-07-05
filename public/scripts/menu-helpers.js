@@ -42,7 +42,7 @@ const createMenuElement = (mealData) => {
       </div>
 
       <div class="food-detail">
-        <i class="fa-solid fa-heart heart-food" id="heart"></i>
+        <i class="fa-solid fa-heart heart-food heart"></i>
         <div class="prep-time">prep-time: ${mealData.prep_time_minutes} mins</div>
         <i class="fa-solid fa-cart-shopping add-food"></i>
       </div>

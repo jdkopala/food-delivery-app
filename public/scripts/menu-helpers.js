@@ -49,7 +49,7 @@ const createMenuElement = (mealData) => {
     </div>
 
     <div class="food-img">
-      <img class="food-pic" src="https://questionjapan.com/wp-content/uploads/2019/09/japanese-food.jpg" >
+      <img class="food-pic" src=${mealData.thumbnail_url}>
     </div>
   </article>`);
 

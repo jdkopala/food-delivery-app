@@ -92,6 +92,8 @@
   margin-right: 200px;
   padding-bottom: 10px;
   padding-top: 10px;
+  text-decoration: none;
+  color: black;
 }
 
 .fa-circle-minus, .fa-circle-plus {

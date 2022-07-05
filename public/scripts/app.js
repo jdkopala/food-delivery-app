@@ -74,7 +74,7 @@ $(document).ready(function () {
 
   $('#cart-button').on('click', () => {
     generateCart(currentOrder);
-  })
+  });
 
 });
 
@@ -92,6 +92,22 @@ $(document).on('click', '#checkout-button', function() {
         document.location.href = 'http://localhost:8080/'
       })
     } else {
-      alert('You cart is empty');
+      $('.warning-msg').text('Your cart is empty. Please select a meal.');
+      setTimeout(() => {
+        $('.error-msg').slideUp()
+      }, 5000)
+      return $('.error-msg').slideDown()
     }
+})
+
+$(document).on('click', '.add-food', function(e) {
+
+  $(e.target).addClass('bounce')
+  $(e.target).addClass('clicks');
+})
+
+$(document).on('click', '.heart', function(e) {
+
+  $(e.target).addClass('bounce')
+  $(e.target).addClass('clicked');
 })

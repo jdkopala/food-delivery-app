@@ -6,7 +6,7 @@ let favourites = [];
 
 $(document).ready(function () {
   loadMenu();
-
+  // Interaction and animation for menu options dropdown
   $('.select-btn').on('click', function () {
     if ($('.options').is(':hidden')) {
       $('.options').slideDown('slow');
@@ -15,6 +15,7 @@ $(document).ready(function () {
     }
   });
 
+  // Each of these pulls the appropriate category of food from the database and displays it on our page
   $('#breakfast').on('click', function () {
     let foodOption = $('#breakfast').children().text();
     $('.btn-text').text(foodOption);
@@ -62,7 +63,7 @@ $(document).ready(function () {
     $('.checkout-container').hide();
     loadMenu();
   });
-
+  // This one pulls favourites marked by the user and displays them on the main page
   $('#favourites').on('click', function () {
     let foodOption = $('#favourites').children().text();
     $('.btn-text').text(foodOption);
@@ -71,7 +72,7 @@ $(document).ready(function () {
     $('.main-page').empty();
     renderMenu(favourites);
   });
-
+  // Alter the cursor to make it obvious the logo and cart buttons are clickable
   $('#cart-button').on('mouseover', () => {
     $('#cart-button').css('cursor', 'pointer')
   });
@@ -79,11 +80,11 @@ $(document).ready(function () {
   $('.nav-logo').on('mouseover', () => {
     $('.nav-logo').css('cursor', 'pointer')
   });
-
+  // When a user clicks on the logo, it returns to the main menu
   $('.nav-logo').on('click', () => {
     loadMenu();
   });
-
+  // Clicking on the cart button brings up the generated checkout page
   $('#cart-button').on('click', () => {
     generateCart(currentOrder);
   })

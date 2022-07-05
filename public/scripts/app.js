@@ -96,9 +96,9 @@ $(document).on('click', '#checkout-button', function() {
 
     if (currentOrder.length > 0) {
       $.ajax({
-        url: "http://localhost:8080/sms/",
+        url: "http://localhost:8080/orders/",
         method: 'POST',
-        data:  { messageToCustomer }
+        data:  { messageToCustomer, currentOrder }
       })
       .then((data) => {
         console.log(data);

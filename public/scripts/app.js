@@ -107,3 +107,26 @@ $(document).on('click', '#checkout-button', function() {
       alert('You cart is empty');
     }
 })
+
+
+$(document).on('click', '.add-food',(e) => {
+  let addMeal = $(e.target).parent().parent().parent().data().orderObject;
+  currentOrder.push(addMeal);
+  let currentTotal = Number($('#cart-total').text());
+  $('#cart-total').text(currentTotal + 1);
+});
+
+$(document).on('click', '.heart-food',(e) => {
+  let addMeal = $(e.target).parent().parent().parent().data().orderObject;
+  const checkForFavourite = (addMeal) => {
+    for (let f of favourites) {
+      if (addMeal.id === f.id) {
+        alert('Already saved to your favourites!');
+        return true;
+      }
+    }
+  }
+  if (!checkForFavourite(addMeal)) {
+    favourites.push(addMeal);
+  }
+});

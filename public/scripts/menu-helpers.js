@@ -49,7 +49,7 @@ const createMenuElement = (mealData) => {
     </div>
 
     <div class="food-img">
-      <img class="food-pic" src=${mealData.thumbnail_url} >
+      <img class="food-pic" src=${mealData.thumbnail_url}>
     </div>
   </article>`);
 

@@ -31,7 +31,7 @@ VALUES ('Chicken Alfredo', 'Chicken noodles lavishly dressed in a creamy garlic 
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
 VALUES ('Baked Lasagna', 'Fine lasagna noodles layered with hearty meat sauce, stringy mozzarella, and fresh Parmesan. Served with garlic toast.', 18, 1399, 5, 'Entrees', 'https://i.imgur.com/AVG8uGk.png');
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
-VALUES ('Pub Burger', 'Alberta beef patty served with pepper jack cheese, smokey bacon, fresh tomatoes, lettuce, pickles, sauteed mushrooms and onions, and a fiery chipotle aioli.', 16, 1699, 5, 'Handhelds', 'https://i.imgur.com/AVG8uGk.png');
+VALUES ('Pub Burger', 'Alberta beef patty served with pepper jack cheese, smokey bacon, fresh tomatoes, lettuce, pickles, sauteed mushrooms and onions, and a fiery chipotle aioli.', 16, 1699, 5, 'Handhelds', 'https://i.imgur.com/SYkNGaL.png');
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)
 VALUES ('Chicken Fingers and Fries', 'Breaded chicken breast fillets, with golden crispy fries and plum sauce. Served with carrot sticks.', 12, 1549, 4, 'Handhelds', 'https://i.imgur.com/g5hNdgH.png');
 INSERT INTO food_items (name, description, prep_time_minutes, price_cents, rating, menu_category, thumbnail_url)

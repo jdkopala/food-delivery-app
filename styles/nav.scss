@@ -108,11 +108,23 @@ nav {
 }
 
 #cart-icon {
-  margin-top: 18px;
   margin-right: 5px;
+  margin-bottom: 20px;
 }
 
 .user-login {
   margin: 10px;
   margin-right: 15px;
+}
+
+#cart-button {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#cart-total {
+  display: flex;
+  justify-content:end;
+  font-size: 15px;
 }

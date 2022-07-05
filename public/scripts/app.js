@@ -84,7 +84,7 @@ $(document).ready(function () {
   $('.nav-logo').on('click', () => {
     loadMenu();
   });
-  // Clicking on the cart button brings up the generated checkout page
+  // Clicking on the cart button brings up the generated checkout pagea
   $('#cart-button').on('click', () => {
     generateCart(currentOrder);
   })

@@ -42,13 +42,13 @@ body {
   font-size: 23px;
 }
 
-#heart {
+.heart {
   margin-right: 23px;
   padding-left: 10px;
   padding-top: 8px;
 }
 
-#heart:hover {
+.heart:hover {
   color: #f46161;
 }
 
@@ -69,4 +69,46 @@ body {
 }
 .food-img .food-pic {
   width: 100%;
+}
+
+.error-msg {
+  border: 5px solid #a3d0db;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 140px 55px 20px 55px;
+  display: none;
+}
+.error-msg .error-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.error-msg #warning-icon {
+  color: #ee775a;
+  padding: 3px 8px;
+  margin-top: 24px;
+}
+
+.bounce {
+  animation: bounce 2s;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-2px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+.clicked {
+  color: #f46161;
+}
+
+.clicks {
+  color: #3c91e1;
 }

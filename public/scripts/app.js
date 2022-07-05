@@ -87,7 +87,7 @@ $(document).ready(function () {
   // Clicking on the cart button brings up the generated checkout page
   $('#cart-button').on('click', () => {
     generateCart(currentOrder);
-  })
+  });
 
 });
 
@@ -105,7 +105,11 @@ $(document).on('click', '#checkout-button', function() {
         document.location.href = 'http://localhost:8080/'
       })
     } else {
-      alert('You cart is empty');
+      $('.warning-msg').text('Your cart is empty. Please select a meal.');
+      setTimeout(() => {
+        $('.error-msg').slideUp()
+      }, 5000)
+      return $('.error-msg').slideDown()
     }
 })
 

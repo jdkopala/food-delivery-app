@@ -119,6 +119,8 @@ $(document).on('click', '.add-food',(e) => {
   currentOrder.push(addMeal);
   let currentTotal = Number($('#cart-total').text());
   $('#cart-total').text(currentTotal + 1);
+  $(e.target).addClass('bounce')
+  $(e.target).addClass('clicks')
 });
 
 $(document).on('click', '.heart-food',(e) => {
@@ -134,4 +136,7 @@ $(document).on('click', '.heart-food',(e) => {
   if (!checkForFavourite(addMeal)) {
     favourites.push(addMeal);
   }
+  $(e.target).addClass('bounce')
+  $(e.target).addClass('clicked')
+
 });

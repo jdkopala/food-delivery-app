@@ -1,4 +1,4 @@
-
+// Customer cart object
 let currentOrder = [];
 
 $(document).ready(function () {
@@ -81,13 +81,17 @@ $(document).ready(function () {
 $(document).on('click', '#checkout-button', function() {
     let messageToCustomer = generateSMS(currentOrder);
 
-    $.ajax({
-      url: "http://localhost:8080/sms/",
-      method: 'POST',
-      data:  { messageToCustomer }
-    })
-    .then((data) => {
-      console.log(data)
-      document.location.href = 'http://localhost:8080/'
-    })
+    if (currentOrder.length > 0) {
+      $.ajax({
+        url: "http://localhost:8080/sms/",
+        method: 'POST',
+        data:  { messageToCustomer }
+      })
+      .then((data) => {
+        console.log(data)
+        document.location.href = 'http://localhost:8080/'
+      })
+    } else {
+      alert('You cart is empty');
+    }
 })

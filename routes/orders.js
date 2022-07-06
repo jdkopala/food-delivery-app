@@ -7,7 +7,7 @@ module.exports = (db) => {
     let query = `SELECT orders.*, users.name
     FROM orders
     JOIN users ON users.id = orders.customer_id
-    ORDER BY users.id
+    ORDER BY users.id ASC
     `;
    return db.query(query)
       .then(data => {
@@ -57,8 +57,46 @@ module.exports = (db) => {
       })
   })
 
-  router.put('/:id', (req, res) => {
+  router.put('/:id/confirm', (req, res) => {
+    let id = req.params.id
+    console.log('id: ', id);
+    let query = `
+    UPDATE orders
+    SET status = 'Confirmed'
+    WHERE id = $1;
+    `
+    return db.query(query, [id])
+    .then(() => {
+      res.send('success')
+    })
+  })
 
+  router.put('/:id/decline', (req, res) => {
+    let id = req.params.id
+    console.log('id: ', id);
+    let query = `
+    UPDATE orders
+    SET status = 'Declined'
+    WHERE id = $1;
+    `
+    return db.query(query, [id])
+    .then(() => {
+      res.send('success')
+    })
+  })
+
+  router.put('/:id/complete', (req, res) => {
+    let id = req.params.id
+    console.log('id: ', id);
+    let query = `
+    UPDATE orders
+    SET status = 'Complete'
+    WHERE id = $1;
+    `
+    return db.query(query, [id])
+    .then(() => {
+      res.send('success')
+    })
   })
 
   return router;

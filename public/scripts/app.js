@@ -1,3 +1,5 @@
+
+
 // Customer cart object
 let currentOrder = [];
 
@@ -96,7 +98,10 @@ $(document).ready(function () {
 
   $('.admin-login').on('click', () => {
     loadOrders();
+  })
 
+  $('.customer-login').on('click', () => {
+    loadCustomerOrders();
   })
 });
 

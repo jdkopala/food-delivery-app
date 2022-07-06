@@ -52,10 +52,53 @@ const createOrderListItem = async (customerOrder) => {
   return order
 };
 
-const renderOrderList = async (data) => {
+const createCustomerOrderListItem = async (customerOrder) => {
+  let orderDetails = await loadOrderDetails(customerOrder.id)
+  let order =`
+  <article class="order-list">
+    <div class="order-item">
+      <div class="order-detail" id='order-detail-info'>
+          <div class="order-id-detail" id='order-detail'>
+            <div class="amount" id='order-id'>${customerOrder.id}</div>
+          </div>
+
+          <div class="item-name" id='order-customer'>${customerOrder.name}</div>
+          <div class="" id="order-status">${customerOrder.status}</div>
+          <a href='#' class="order-detail-button">Order Details</a>
+      </div>
+    </div>
+    <div class="cx-order-detail">
+    `
+
+    for (let d of orderDetails) {
+      order += `
+        <div class="cx-order-item">${d.name}</div>
+        <div class='cx-order-price'>$${d.price_cents / 100}</div>
+      `
+    };
+
+  order +=`
+    </div>
+  </article>
+  `
+
+  return order
+};
+
+const renderAdminOrderList = async (data) => {
   $('.main-page').append('<header id="order-header-info">Customer Orders</header>')
   for (let d of data) {
     await createOrderListItem(d)
+    .then((data)=> {
+      $('.main-page').append(data);
+    })
+  };
+};
+
+const renderCustomerOrderList = async (data) => {
+  $('.main-page').append('<header id="order-header-info">Your Orders</header>')
+  for (let d of data) {
+    await createCustomerOrderListItem(d)
     .then((data)=> {
       $('.main-page').append(data);
     })
@@ -66,6 +109,14 @@ const loadOrders = () => {
   $.get('/orders')
   .then((data) => {
     $('.main-page').empty()
-    renderOrderList(data.orders)
+    renderAdminOrderList(data.orders)
+  })
+};
+
+const loadCustomerOrders = () => {
+  $.get('/orders')
+  .then((data) => {
+    $('.main-page').empty()
+    renderCustomerOrderList(data.orders)
   })
 };

@@ -8,7 +8,7 @@ module.exports = (db) => {
     SELECT orders.*, users.name
     FROM orders
     JOIN users ON users.id = orders.customer_id
-    ORDER BY orders.id ASC;
+    ORDER BY orders.id DESC;
     `;
    return db.query(query)
       .then(data => {

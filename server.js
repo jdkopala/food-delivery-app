@@ -58,16 +58,18 @@ app.use("/sms-response", smsResponseRouter(db));
 // When you land on the main page below
 // It should auto populate with the entire menu
 
-app.get("/1", (req, res) => {
+app.get("/", (req, res) => {
   req.cookies.user_id = 1;
-  console.log('cookie: ', req.cookies)
-  res.render("index");
+  let cookie = req.cookies;
+  const templateVars = { user_id: cookie.user_id }
+  res.render("index", templateVars);
 });
 
-app.get("/2", (req, res) => {
+app.get("/1", (req, res) => {
   req.cookies.user_id = 2;
-  console.log('cookie: ', req.cookies)
-  res.render("admin");
+  let cookie = req.cookies;
+  const templateVars = { user_id: cookie.user_id }
+  res.render("admin", templateVars);
 });
 
 app.listen(PORT, () => {

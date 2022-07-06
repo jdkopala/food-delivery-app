@@ -72,7 +72,7 @@ $(document).ready(function () {
     $('.options').slideUp();
     $('.checkout-container').hide();
     $('.main-page').empty();
-    renderMenu(favourites);
+    loadUserFavourites();
   });
   // Alter the cursor to make it obvious the logo and cart buttons are clickable
   $('#cart-button').on('mouseover', () => {
@@ -245,7 +245,14 @@ $(document).on('click', '.heart-food',(e) => {
   }
   $(e.target).addClass('bounce');
   $(e.target).addClass('clicked');
-
+  $.ajax({
+    url: 'http://localhost:8080/food_items/favourites',
+    method: 'POST',
+    data: { addMeal }
+  })
+  .then((data) => {
+    console.log(data);
+  })
 });
 
 

@@ -45,6 +45,19 @@ module.exports = (db) => {
     })
   });
 
+  router.post("/favourites", (req, res) => {
+    let meal = req.body.addMeal;
+    let food_id = meal.id
+    console.log(meal);
+    return db.query(`
+    INSERT INTO user_favourites (customer_id, food_id)
+    VALUES (1, $1)
+    `, [food_id])
+    .then((data) => {
+      return res.json(data.rows);
+    })
+  });
+
   router.get("/:category", (req, res) => {
     let category = req.params.category;
     return db.query(`

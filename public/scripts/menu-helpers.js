@@ -1,22 +1,17 @@
 
-// const getUserFavourites = (userId) => {
-//   return db.query(`
-//   SELECT *
-//   FROM user_favourites
-//   WHERE user_id = $1;
-//   `, [userId])
-//   .then((res) => {
-//     console.log(res.rows);
-//     return res.rows;
-//   })
-// };
-
 const loadMenu = () => {
   $.get("/food_items")
   .then((data) => {
     $('.main-page').empty();
-      console.log(data);
       renderMenu(data.food_items);
+    });
+};
+
+const loadUserFavourites = () => {
+  $.get("/food_items/favourites")
+  .then((data) => {
+    $('.main-page').empty();
+      renderMenu(data);
     });
 };
 
@@ -24,7 +19,6 @@ const loadCategory = (category) => {
   $.get(`/food_items/${category}`)
     .then((data) => {
       $('.main-page').empty();
-      console.log(data);
       renderMenu(data);
     });
 };

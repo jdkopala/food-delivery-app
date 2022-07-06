@@ -1,40 +1,43 @@
-const generateOrderList = () => {
+const loadOrders = () => {
+  $.get('/orders')
+  .then((data) => {
+    $('.main-page').empty();
+    console.log(data.orders);
+    renderOrderList(data.orders)
+  })
+};
+
+const loadOrderDetails = () => {
+  $.get('/order_items/:id')
+  .then((data) => {
+    $('.main-page').empty();
+    console.log(data)
+  })
+};
+
+const createOrderListItem = (customerOrder) => {
   let orderTotal = 0;
-  $('.main-page').empty();
-  for (let d of currentOrder) {
-  }
-  let orderList =`
-  <article class="checkout-content">
+  let order =`
+  <article class="order-list">
 
     <div class="order-item">
-      <header id="order-header">Your items</header>
-
-      `
-      for (let d of currentOrder) {
-        let orderItem = `
+      <header id="order-header">Customer Orders</header>
         <div class="order-detail" id='order-detail'>
           <div class="order-amount" id='order-detail'>
-            <i class="fa-solid fa-circle-minus" id='order-detail'></i>
-            <div class="amount" id='order-detail'>1</div>
-            <i class="fa-solid fa-circle-plus" id='order-detail'></i>
+            <div class="amount" id='order-id'>${customerOrder.id}</div>
           </div>
-          <div class="item-name" id='order-detail'>${d.name}</div>
-          <div class="dollar-amount" id='order-detail'>$${d.price_cents / 100}</div>
+          <div class="item-name" id='order-customer'>${customerOrder.name}</div>
         </div>
-        `
-        orderTotal += d.price_cents;
-        checkout += orderItem;
-      }
-
-  checkout +=`
     </div>
-
-
-    <div class="order-total">Order Total $${orderTotal / 100}</div>
-
-    <a href='#' id="checkout-button">Place your order</a>
   </article>
   `
 
-  $('.main-page').append(checkout);
+  return order
+};
+
+const renderOrderList = (data) => {
+  for (let d of data) {
+    let order = createOrderListItem(d);
+    $('.main-page').prepend(order);
+  };
 };

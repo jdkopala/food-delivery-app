@@ -80,6 +80,10 @@ $(document).ready(function () {
   $('.nav-logo').on('mouseover', () => {
     $('.nav-logo').css('cursor', 'pointer')
   });
+
+  $('.admin-login').on('mouseover', () => {
+    $('.admin-login').css('cursor', 'pointer')
+  });
   // When a user clicks on the logo, it returns to the main menu
   $('.nav-logo').on('click', () => {
     loadMenu();
@@ -90,6 +94,9 @@ $(document).ready(function () {
     $('.place-order').hide();
   });
 
+  $('.admin-login').on('click', () => {
+    loadOrders();
+  })
 });
 
 $(document).on('click', '#checkout-button', function() {

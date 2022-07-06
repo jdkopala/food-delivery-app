@@ -30,7 +30,6 @@ module.exports = (db) => {
 
   router.post('/', (req, res) => {
     let currentOrder = req.body.currentOrder
-    console.log('currentOrder: ', currentOrder)
     let query = `
     INSERT INTO orders (customer_id, order_date)
     VALUES ('1', Now())

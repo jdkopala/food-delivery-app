@@ -10,6 +10,7 @@ const loadOrderDetails = (orderId) => {
 const createOrderListItem = async (customerOrder) => {
   let orderDetails = await loadOrderDetails(customerOrder.id)
   let status = `${customerOrder.status}`
+  let orderTotal = 0;
   let order =`
   <article class="order-list">
     <div class="order-item">
@@ -27,33 +28,38 @@ const createOrderListItem = async (customerOrder) => {
     `
 
     for (let d of orderDetails) {
+      orderTotal += Number(d.price_cents)
       order += `
         <div class="cx-order-item">${d.name}</div>
       `
     }
 
+  order += `<div class='cx-order-total'>TOTAL: $${orderTotal / 100}</div>`
   order +=`
     <div class="admin-order-button">
     `
     if (status === 'Confirmed') {
       order += `<button class="complete-order">Complete Order</button>`
-    } else if (status === 'Pending')
+    } else if (status === 'Pending') {
       order += `
-        <button class="refuse-order">Decline Order</button>
-        <button class="confirm-order">Confirm Order</button>
-        <button class="complete-order">Complete Order</button>
-        `
+      <button class="refuse-order">Decline Order</button>
+      <button class="confirm-order">Confirm Order</button>
+      <button class="complete-order">Complete Order</button>
+      `
+    }
+
     order += `
     </div>
     </div>
   </article>
   `
-
+    console.log(order);
   return order
 };
 
 const createCustomerOrderListItem = async (customerOrder) => {
   let orderDetails = await loadOrderDetails(customerOrder.id)
+  let orderTotal = 0;
   let order =`
   <article class="order-list">
     <div class="order-item">
@@ -71,6 +77,7 @@ const createCustomerOrderListItem = async (customerOrder) => {
     `
 
     for (let d of orderDetails) {
+      orderTotal += d.price_cents
       order += `
         <div class="cx-order-item">${d.name}</div>
         <div class='cx-order-price'>$${d.price_cents / 100}</div>
@@ -78,6 +85,7 @@ const createCustomerOrderListItem = async (customerOrder) => {
     };
 
   order +=`
+    <div class='cx-order-total'>TOTAL: $${orderTotal / 100}</div>
     </div>
   </article>
   `

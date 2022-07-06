@@ -25,15 +25,21 @@ module.exports = (db) => {
   });
 
   router.get("/favourites", (req, res) => {
-    let category = req.params.category;
     return db.query(`
-    SELECT user_favourites.*, food_items.name, food_items.description, food_items.prep_time_minutes, food_items.price_cents, food_items.rating, food_items.menu_category, food_items.thumbnail_url
+    SELECT user_favourites.*,
+    food_items.name,
+    food_items.description,
+    food_items.prep_time_minutes,
+    food_items.price_cents,
+    food_items.rating,
+    food_items.menu_category,
+    food_items.thumbnail_url
     FROM user_favourites
     JOIN users ON customer_id = users.id
     JOIN food_items ON food_id = food_items.id
     WHERE customer_id = 1
     ORDER BY price_cents DESC;
-    `, [category])
+    `)
     .then((data) => {
       res.json(data.rows);
     })

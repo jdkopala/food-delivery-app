@@ -79,9 +79,11 @@ const createCustomerOrderListItem = async (customerOrder) => {
     for (let d of orderDetails) {
       orderTotal += d.price_cents
       order += `
-        <div class="cx-order-item">${d.name}</div>
-        <div class='cx-order-price'>$${d.price_cents / 100}</div>
-      `
+        <div class="cx-order-detail-namenprice">
+          <div class="cx-order-item">${d.name}</div>
+          <div class='cx-order-price'>$${d.price_cents / 100}</div>
+        </div>
+        `
     };
 
   order +=`

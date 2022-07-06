@@ -119,9 +119,6 @@ $(document).on('click', '#checkout-button', function() {
         $('#cart-total').text(0);
         $('div.order-item').empty();
         $('.place-order').slideDown();
-        setTimeout(() => {
-          document.location.href = 'http://localhost:8080/'
-        }, 8000);
       })
       $.ajax({
         url: 'http://localhost:8080/sms/',

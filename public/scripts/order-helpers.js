@@ -68,6 +68,4 @@ const generateSMS = (currentOrder) => {
   }
   messageToCustomer += `Thank you for placing your order at Happy Eats! Your total is $${orderTotal/100} and your order will be ready for pickup in approximately ${prepTime} minutes. Please pay for your order when you come to pick it up, thank you!`
   return messageToCustomer;
-
-
 };

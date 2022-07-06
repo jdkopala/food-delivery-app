@@ -5,13 +5,14 @@ const db = require('../db/db');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT id FROM orders
-    ORDER BY id`;
-    console.log(query);
+    let query = `SELECT orders.*, users.name
+    FROM orders
+    JOIN users ON users.id = orders.customer_id
+    ORDER BY users.id
+    `;
    return db.query(query)
       .then(data => {
         const orders = data.rows;
-        console.log("data:", data);
        return res.json({
           orders
         });
@@ -27,7 +28,6 @@ module.exports = (db) => {
 
   router.post('/', (req, res) => {
     let currentOrder = req.body.currentOrder
-    console.log('currentOrder: ', currentOrder)
     let query = `
     INSERT INTO orders (customer_id, order_date)
     VALUES ('1', Now())

@@ -27,6 +27,7 @@ CREATE TABLE food_items (
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
   customer_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
+  status TEXT DEFAULT 'Pending',
   order_date DATE NOT NULL DEFAULT CURRENT_DATE
 );
 

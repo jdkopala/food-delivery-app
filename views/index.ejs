@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/checkout-nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/dashboard.css" type="text/css" />
 
   <!-- External font from Google Lobster -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +18,11 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+  <script type="text/javascript" src="scripts/dashboard-helpers.js"></script>
   <script type="text/javascript" src="scripts/menu-helpers.js"></script>
   <script type="text/javascript" src="scripts/order-helpers.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
+
 
 </head>
 
@@ -67,7 +70,8 @@
         <span type="submit" method="GET" action="/checkout" id="cart-total">0</span>
         <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
       </div>
-        <div class="user-login">Login</div>
+      <div class="user-login">Login</div>
+      <div class="admin-login">Dashboard</div>
     </div>
 
   </nav>

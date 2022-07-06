@@ -115,13 +115,13 @@ $(document).on('click', '#checkout-button', function() {
         $('.place-order-msg').text('Your order has been sent to the chef, you will receive a response soon 💙');
         setTimeout(() => {
           $('.place-order').slideUp();
-        }, 8000)
+        }, 6000)
         $('#cart-total').text(0);
         $('div.order-item').empty();
         $('.place-order').slideDown();
         setTimeout(() => {
           document.location.href = 'http://localhost:8080/'
-        }, 10000);
+        }, 8000);
       })
     } else {
       $('.warning-msg').text('Your cart is empty. Please select a meal.');
@@ -133,7 +133,7 @@ $(document).on('click', '#checkout-button', function() {
 });
 
 $(document).on('click', '.confirm-order', async function(e) {
-  let orderId = $(e.target).parent().parent().children('.order-item').children('#order-detail-info').children('.order-id').text();
+  let orderId = $(e.target).parent().parent().parent().children('.order-item').children('.order-detail').children('.order-id-detail').children('#order-id').text();
   console.log("orderID: ", orderId);
   let messageToCustomer = generateSMS(await loadOrderDetails(orderId));
 
@@ -144,7 +144,7 @@ $(document).on('click', '.confirm-order', async function(e) {
   })
   .then((data) => {
     console.log('##', data);
-    $(e.target).parent().parent().children('.order-item').children('#order-detail-info').children('#order-status').text("Confirmed");
+    $(e.target).parent().parent().parent().children('.order-item').children('.order-detail').children('#order-status').text('Confirmed');
     $(e.target).siblings('.refuse-order').hide();
     $(e.target).hide();
     $(e.target).siblings('.complete-order').show();
@@ -166,8 +166,7 @@ $(document).on('click', '.refuse-order', function(e) {
   })
   .then((data) => {
     console.log(data);
-    $(e.target).parent().parent().children('.order-item').children('#order-detail-info').children('#order-status').text("Declined");
-    $(e.target).siblings('.confirm-order').hide();
+    $(e.target).parent().parent().parent().children('.order-item').children('.order-detail').children('#order-status').text('Declined');
     $(e.target).siblings('.complete-order').hide();
     $(e.target).hide();
     // AJAX request to PUT new data into the database (Declined order)
@@ -178,7 +177,7 @@ $(document).on('click', '.refuse-order', function(e) {
 $(document).on('click', '.complete-order', function(e) {
   // let orderId = $(e.target).parent().parent().children('.order-item').children('#order-detail').children('.order-id').text();
   // let messageToCustomer = 'Unfortunately, we cannot accept your order at this time. Apologies, try again later';
-  $(e.target).parent().parent().children('.order-item').children('#order-detail-info').children('#order-status').text("Complete");
+  $(e.target).parent().parent().parent().children('.order-item').children('.order-detail').children('#order-status').text('Completed');
   $(e.target).hide();
 
   // $.ajax({
@@ -187,7 +186,6 @@ $(document).on('click', '.complete-order', function(e) {
   //   data:  { messageToCustomer }
   // })
   // .then((data) => {
-    console.log(data);
     $(e.target).siblings('.confirm-order').hide();
     $(e.target).siblings('.complete-order').hide();
     // AJAX request to PUT new data into the database (Change order status to COMPLETE or PICKED UP)
@@ -223,3 +221,13 @@ $(document).on('click', '.heart-food',(e) => {
   $(e.target).addClass('clicked');
 
 });
+
+
+$(document).on('click', '.order-detail-button', function(e) {
+  let orderDetails = $(e.target).parent().parent().siblings('.cx-order-detail');
+  if ($(orderDetails).is(':hidden')) {
+    $(orderDetails).slideDown('slow');
+  } else {
+    $(orderDetails).slideUp();
+  }
+})

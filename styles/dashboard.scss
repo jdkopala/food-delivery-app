@@ -46,6 +46,22 @@
 }
 
 
-// // .complete-order {
-// //   display: none;
-// // }
+.complete-order {
+  display: none;
+}
+
+.cx-order-detail {
+  display: none;
+}
+
+.order-detail-button {
+  border: none;
+    color: black;
+    background-color: rgba(163, 208, 219, 1);
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 8px 5px 8px 5px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}

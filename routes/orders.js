@@ -7,12 +7,12 @@ module.exports = (db) => {
     let query = `SELECT orders.*, users.name
     FROM orders
     JOIN users ON users.id = orders.customer_id
-    ORDER BY users.id ASC
+    ORDER BY orders.id ASC
     `;
    return db.query(query)
       .then(data => {
         const orders = data.rows;
-       return res.json({
+        return res.json({
           orders
         });
       })

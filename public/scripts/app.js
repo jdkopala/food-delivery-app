@@ -122,11 +122,11 @@ $(document).on('click', '#checkout-button', function() {
         setTimeout(() => {
           document.location.href = 'http://localhost:8080/'
         }, 8000);
-        $.ajax({
-          url: 'http://localhost:8080/sms/',
-          method: 'POST',
-          data: { messageToCustomer }
-        })
+      })
+      $.ajax({
+        url: 'http://localhost:8080/sms/',
+        method: 'POST',
+        data: { messageToCustomer }
       })
     } else {
       $('.warning-msg').text('Your cart is empty. Please select a meal.');

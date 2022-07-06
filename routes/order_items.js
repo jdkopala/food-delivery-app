@@ -4,7 +4,7 @@ const db = require('../db/db');
 
 module.exports = (db) => {
   router.get("/:id", (req, res) => {
-    let orderId = req.params.id
+    let orderId = req.params.id;
     let query = `
     SELECT order_items.*, food_items.name, food_items.price_cents, food_items.prep_time_minutes
     FROM order_items

@@ -102,7 +102,7 @@ $(document).ready(function () {
 });
 
 $(document).on('click', '#checkout-button', function() {
-
+  let messageToCustomer = 'A new order has been received. Please check the dashboard for more details.'
     if (currentOrder.length > 0) {
       $.ajax({
         url: "http://localhost:8080/orders/",
@@ -122,6 +122,11 @@ $(document).on('click', '#checkout-button', function() {
         setTimeout(() => {
           document.location.href = 'http://localhost:8080/'
         }, 8000);
+        $.ajax({
+          url: 'http://localhost:8080/sms/',
+          method: 'POST',
+          data: { messageToCustomer }
+        })
       })
     } else {
       $('.warning-msg').text('Your cart is empty. Please select a meal.');
@@ -155,7 +160,7 @@ $(document).on('click', '.confirm-order', async function(e) {
       data: { orderId }
     })
     .then((data) => {
-    
+
     })
   })
   .catch((err) => {

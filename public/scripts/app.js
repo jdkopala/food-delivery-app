@@ -96,6 +96,7 @@ $(document).ready(function () {
 
   $('.admin-login').on('click', () => {
     loadOrders();
+
   })
 });
 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Happy Eats</title>
+
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/checkout-nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/dashboard.css" type="text/css" />
+
+  <!-- External font from Google Lobster -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,400;1,300&family=Source+Sans+Pro:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="scripts/dashboard-helpers.js"></script>
+  <script type="text/javascript" src="scripts/menu-helpers.js"></script>
+  <script type="text/javascript" src="scripts/order-helpers.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+
+
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-logo">Happy Eats</div>
+
+    <div class="select-menu">
+      <div class="select-btn">
+        <span class="btn-text" >Currently Craving?</span>
+        <i class="fa-solid fa-angle-down" id="select-arrow"></i>
+      </div>
+
+      <ul class="options">
+        <li class="option" id="breakfast">
+           <span class="option-food">Breakfast</span>
+        </li>
+
+        <li class="option" id="soup">
+          <span class="option-food">Soups and Salads</span>
+        </li>
+        <li class="option" id="appetizer">
+          <span class="option-food">Appetizers</span>
+        </li>
+        <li class="option" id="main-entrees">
+          <span class="option-food">Main Entrees</span>
+        </li>
+        <li class="option" id="handhelds">
+          <span class="option-food">Handhelds</span>
+        </li>
+
+        <li class="option" id="all-items">
+          <span class="option-food">All Menu Options</span>
+        </li>
+
+        <li class="option" id="favourites">
+          <span class="option-food">Your Favourites</span>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="user-info">
+      <div id='cart-button'>
+        <span type="submit" method="GET" action="/checkout" id="cart-total">0</span>
+        <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+      </div>
+      <div class="user-login">Login</div>
+      <div class="admin-login">Dashboard</div>
+    </div>
+
+  </nav>
+
+  <main class="main-page">
+    <div class="menu-container">
+
+    </div>
+    <div class="checkout-container">
+
+    </div>
+  </main>
+
+</body>
+
+</html>

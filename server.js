@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8080;
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
+const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
 
 // PG database client/connection setup
@@ -18,7 +19,7 @@ db.connect();
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan("dev"));
-
+app.use(cookieParser());
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
@@ -57,8 +58,16 @@ app.use("/sms-response", smsResponseRouter(db));
 // When you land on the main page below
 // It should auto populate with the entire menu
 
-app.get("/", (req, res) => {
+app.get("/1", (req, res) => {
+  req.cookies.user_id = 1;
+  console.log('cookie: ', req.cookies)
   res.render("index");
+});
+
+app.get("/2", (req, res) => {
+  req.cookies.user_id = 2;
+  console.log('cookie: ', req.cookies)
+  res.render("admin");
 });
 
 app.listen(PORT, () => {

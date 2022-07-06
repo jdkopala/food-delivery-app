@@ -168,7 +168,7 @@ $(document).on('click', '.refuse-order', function(e) {
   let messageToCustomer = 'Unfortunately, we cannot accept your order at this time. Apologies, try again later';
 
   $.ajax({
-    url: "http://localhost:8080/sms/decline",
+    url: "http://localhost:8080/sms/",
     method: 'POST',
     data:  { messageToCustomer }
   })
@@ -194,7 +194,7 @@ $(document).on('click', '.complete-order', function(e) {
   let messageToCustomer = `Thank you for picking up order#${orderId}! See you next time!`
 
   $.ajax({
-    url: "http://localhost:8080/sms/complete",
+    url: "http://localhost:8080/sms/",
     method: 'POST',
     data:  { messageToCustomer }
   })

@@ -147,6 +147,8 @@ $(document).on('click', '.confirm-order', async function(e) {
     $(e.target).siblings('.refuse-order').hide();
     $(e.target).hide();
     $(e.target).siblings('.complete-order').show();
+    // AJAX request to PUT new data into the database (Confirmed order)
+    $
   })
 });
 
@@ -166,6 +168,8 @@ $(document).on('click', '.refuse-order', function(e) {
     $(e.target).siblings('.confirm-order').hide();
     $(e.target).siblings('.complete-order').hide();
     $(e.target).hide();
+    // AJAX request to PUT new data into the database (Declined order)
+    $
   })
 });
 
@@ -184,6 +188,7 @@ $(document).on('click', '.complete-order', function(e) {
     console.log(data);
     $(e.target).siblings('.confirm-order').hide();
     $(e.target).siblings('.complete-order').hide();
+    // AJAX request to PUT new data into the database (Change order status to COMPLETE or PICKED UP)
   // })
 });
 

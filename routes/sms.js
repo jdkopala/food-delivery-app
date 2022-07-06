@@ -17,6 +17,12 @@ module.exports = () => {
     sendMsg(message);
     res.send('success');
   })
+
+  router.post('/complete', (req, res) => {
+    const message = req.body.messageToCustomer;
+    sendMsg(message);
+    res.send('success');
+  })
   return router;
 };
 

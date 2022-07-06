@@ -86,5 +86,19 @@ module.exports = (db) => {
     })
   })
 
+  router.put('/:id/complete', (req, res) => {
+    let id = req.params.id
+    console.log('id: ', id);
+    let query = `
+    UPDATE orders
+    SET status = 'Complete'
+    WHERE id = $1;
+    `
+    return db.query(query, [id])
+    .then(() => {
+      res.send('success')
+    })
+  })
+
   return router;
 };

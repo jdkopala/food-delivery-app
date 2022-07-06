@@ -190,21 +190,29 @@ $(document).on('click', '.refuse-order', function(e) {
 });
 
 $(document).on('click', '.complete-order', function(e) {
-  // let orderId = $(e.target).parent().parent().children('.order-item').children('#order-detail').children('.order-id').text();
-  // let messageToCustomer = 'Unfortunately, we cannot accept your order at this time. Apologies, try again later';
-  $(e.target).parent().parent().parent().children('.order-item').children('.order-detail').children('#order-status').text('Completed');
-  $(e.target).hide();
+  let orderId = $(e.target).parent().parent().parent().children('.order-item').children('.order-detail').children('.order-id-detail').children('#order-id').text();
+  let messageToCustomer = `Thank you for picking up order#${orderId}! See you next time!`
 
-  // $.ajax({
-  //   url: "http://localhost:8080/sms/decline",
-  //   method: 'POST',
-  //   data:  { messageToCustomer }
-  // })
-  // .then((data) => {
-    $(e.target).siblings('.confirm-order').hide();
-    $(e.target).siblings('.complete-order').hide();
-    // AJAX request to PUT new data into the database (Change order status to COMPLETE or PICKED UP)
-  // })
+  $.ajax({
+    url: "http://localhost:8080/sms/complete",
+    method: 'POST',
+    data:  { messageToCustomer }
+  })
+  .then((data) => {
+    console.log(data);
+    $.ajax({
+      url: `http://localhost:8080/orders/${orderId}/complete`,
+      method: 'PUT',
+      data:  { orderId }
+    })
+    .then((data) => {
+      console.log(data);
+      $(e.target).parent().parent().parent().children('.order-item').children('.order-detail').children('#order-status').text('Completed');
+      $(e.target).hide();
+      $(e.target).siblings('.confirm-order').hide();
+      $(e.target).siblings('.complete-order').hide();
+    })
+  })
 });
 
 $(document).on('click', '.add-food',(e) => {

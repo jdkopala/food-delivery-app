@@ -15,6 +15,7 @@ const loadOrderDetails = (orderId) => {
 
 const createOrderListItem = async (customerOrder) => {
   let orderDetails = await loadOrderDetails(customerOrder.id)
+  let status = `${customerOrder.status}`
   let order =`
   <article class="order-list">
     <div class="order-item">
@@ -39,9 +40,20 @@ const createOrderListItem = async (customerOrder) => {
 
   order +=`
     <div class="admin-order-button">
-      <button class="refuse-order">Decline Order</button>
-      <button class="confirm-order">Confirm Order</button>
-      <button class="complete-order">Complete Order</button>
+    `
+    if (`${customerOrder.status}` === 'Completed') {
+      order += ``
+    } else if (`${customerOrder.status}` === 'Declined') {
+      order += ``
+    } else if (`${customerOrder.status}` === 'Confirmed') {
+      order += `<button class="complete-order">Complete Order</button>`
+    } else if (`${customerOrder.status}` === 'Pending')
+      order += `
+        <button class="refuse-order">Decline Order</button>
+        <button class="confirm-order">Confirm Order</button>
+        <button class="complete-order">Complete Order</button>
+        `
+    order += `
     </div>
     </div>
   </article>

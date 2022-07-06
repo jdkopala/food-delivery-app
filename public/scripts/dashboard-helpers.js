@@ -41,13 +41,9 @@ const createOrderListItem = async (customerOrder) => {
   order +=`
     <div class="admin-order-button">
     `
-    if (`${customerOrder.status}` === 'Completed') {
-      order += ``
-    } else if (`${customerOrder.status}` === 'Declined') {
-      order += ``
-    } else if (`${customerOrder.status}` === 'Confirmed') {
+    if (status === 'Confirmed') {
       order += `<button class="complete-order">Complete Order</button>`
-    } else if (`${customerOrder.status}` === 'Pending')
+    } else if (status === 'Pending')
       order += `
         <button class="refuse-order">Decline Order</button>
         <button class="confirm-order">Confirm Order</button>

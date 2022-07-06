@@ -150,12 +150,12 @@ $(document).on('click', '.confirm-order', async function(e) {
     $(e.target).siblings('.complete-order').show();
     // AJAX request to PUT new data into the database (Confirmed order)
     $.ajax({
-      url: `http://localhost:8080/orders/${orderId}`,
+      url: `http://localhost:8080/orders/${orderId}/confirm`,
       method: 'PUT',
       data: { orderId }
     })
     .then((data) => {
-    
+      console.log(data);
     })
   })
   .catch((err) => {

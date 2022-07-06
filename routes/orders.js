@@ -4,10 +4,11 @@ const db = require('../db/db');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT orders.*, users.name
+    let query = `
+    SELECT orders.*, users.name
     FROM orders
     JOIN users ON users.id = orders.customer_id
-    ORDER BY orders.id ASC
+    ORDER BY orders.id ASC;
     `;
    return db.query(query)
       .then(data => {

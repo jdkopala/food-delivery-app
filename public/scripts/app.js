@@ -230,12 +230,6 @@ $(document).on('click', '.add-food',(e) => {
 
 $(document).on('click', '.heart-food', async function(e) {
   let addMeal = $(e.target).parent().parent().parent().data().orderObject;
-  // let favourites = await loadUserFavourites()
-  // .then((data) => {
-  //     console.log(data)
-  //     return data;
-  //   })
-  // console.log('Favourites: ',favourites);
   const checkForFavourite = (addMeal) => {
     for (let f of favourites) {
       if (addMeal.id === f.food_id) {
@@ -261,6 +255,7 @@ $(document).on('click', '.heart-food', async function(e) {
 
 
 $(document).on('click', '.order-detail-button', function(e) {
+  e.preventDefault();
   let orderDetails = $(e.target).parent().parent().siblings('.cx-order-detail');
   if ($(orderDetails).is(':hidden')) {
     $(orderDetails).slideDown('slow');

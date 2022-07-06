@@ -1,10 +1,3 @@
-const loadOrders = () => {
-  $.get('/orders')
-  .then((data) => {
-    $('.main-page').empty();
-    renderOrderList(data.orders)
-  })
-};
 
 const loadOrderDetails = (orderId) => {
   return $.get(`/order_items/${orderId}`)
@@ -12,6 +5,7 @@ const loadOrderDetails = (orderId) => {
     return data.order_items;
   })
 };
+
 
 const createOrderListItem = async (customerOrder) => {
   let orderDetails = await loadOrderDetails(customerOrder.id)
@@ -58,12 +52,20 @@ const createOrderListItem = async (customerOrder) => {
   return order
 };
 
-const renderOrderList = (data) => {
+const renderOrderList = async (data) => {
   $('.main-page').append('<header id="order-header-info">Customer Orders</header>')
   for (let d of data) {
-    createOrderListItem(d)
+    await createOrderListItem(d)
     .then((data)=> {
       $('.main-page').append(data);
     })
   };
+};
+
+const loadOrders = () => {
+  $.get('/orders')
+  .then((data) => {
+    $('.main-page').empty()
+    renderOrderList(data.orders)
+  })
 };

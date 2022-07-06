@@ -178,6 +178,7 @@ $(document).on('click', '.refuse-order', function(e) {
     console.log(data);
     $(e.target).parent().parent().parent().children('.order-item').children('.order-detail').children('#order-status').text('Declined');
     $(e.target).siblings('.complete-order').hide();
+    $(e.target).siblings('.confirm-order').hide();
     $(e.target).hide();
     // AJAX request to PUT new data into the database (Declined order)
     $.ajax({

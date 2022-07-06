@@ -17,16 +17,16 @@ const createOrderListItem = async (customerOrder) => {
   let orderDetails = await loadOrderDetails(customerOrder.id)
   let order =`
   <article class="order-list">
-
     <div class="order-item">
-      <div class="order-detail" id='order-detail'>
-          <div class="order-id" id='order-detail'>
+      <div class="order-detail" id='order-detail-info'>
+          <div class="order-id-detail" id='order-detail'>
             <div class="amount" id='order-id'>${customerOrder.id}</div>
           </div>
+
           <div class="item-name" id='order-customer'>${customerOrder.name}</div>
           <div class="" id="order-status">${customerOrder.status}</div>
           <a href='#' class="order-detail-button">Order Details</a>
-        </div>
+      </div>
     </div>
     <div class="cx-order-detail">
     `
@@ -51,7 +51,7 @@ const createOrderListItem = async (customerOrder) => {
 };
 
 const renderOrderList = (data) => {
-  $('.main-page').append('<header id="order-header">Customer Orders</header>')
+  $('.main-page').append('<header id="order-header-info">Customer Orders</header>')
   for (let d of data) {
     createOrderListItem(d)
     .then((data)=> {

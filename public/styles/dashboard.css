@@ -1,0 +1,43 @@
+#order-header-info {
+  display: flex;
+  margin: 140px 0px 40px 40px;
+  font-size: 30px;
+}
+
+.fa-file-invoice-dollar {
+  padding-left: 10px;
+}
+
+#order-id {
+  margin-left: 10px;
+  padding-right: 60px;
+}
+
+.order-detail-button {
+  text-decoration: none;
+  color: black;
+  margin-right: 10px;
+}
+
+.cx-order-item, .admin-order-button {
+  display: flex;
+  justify-content: center;
+}
+
+.admin-order-button {
+  margin-top: 15px;
+}
+.admin-order-button .refuse-order, .admin-order-button .confirm-order, .admin-order-button .complete-order {
+  border: none;
+  color: black;
+  background-color: #a3d0db;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 8px 5px 8px 5px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.admin-order-button .confirm-order {
+  margin: 0px 40px 0px 40px;
+}

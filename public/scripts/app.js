@@ -149,6 +149,14 @@ $(document).on('click', '.confirm-order', async function(e) {
     $(e.target).hide();
     $(e.target).siblings('.complete-order').show();
     // AJAX request to PUT new data into the database (Confirmed order)
+    $.ajax({
+      url: `http://localhost:8080/orders/${orderId}`,
+      method: 'PUT',
+      data: { orderId }
+    })
+    .then((data) => {
+    
+    })
   })
   .catch((err) => {
     console.log("err:", err);

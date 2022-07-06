@@ -57,5 +57,10 @@ module.exports = (db) => {
           })
       })
   })
+
+  router.put('/:id', (req, res) => {
+
+  })
+
   return router;
 };

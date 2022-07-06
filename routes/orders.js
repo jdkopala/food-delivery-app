@@ -10,11 +10,9 @@ module.exports = (db) => {
     JOIN users ON users.id = orders.customer_id
     ORDER BY id
     `;
-    console.log(query);
    return db.query(query)
       .then(data => {
         const orders = data.rows;
-        // console.log("data:", data.rows);
        return res.json({
           orders
         });

@@ -10,8 +10,8 @@ const loadMenu = () => {
 const loadUserFavourites = () => {
   $.get("/food_items/favourites")
   .then((data) => {
-    $('.main-page').empty();
-      renderMenu(data);
+    console.log(data)
+    renderMenu(data);
     });
 };
 

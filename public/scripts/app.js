@@ -1,9 +1,7 @@
-
-
 // Customer cart object
 let currentOrder = [];
 
-// Customer favourites
+// User favourites array
 let favourites = [];
 
 $(document).ready(function () {
@@ -230,11 +228,17 @@ $(document).on('click', '.add-food',(e) => {
   }, 3000);
 });
 
-$(document).on('click', '.heart-food',(e) => {
+$(document).on('click', '.heart-food', async function(e) {
   let addMeal = $(e.target).parent().parent().parent().data().orderObject;
+  // let favourites = await loadUserFavourites()
+  // .then((data) => {
+  //     console.log(data)
+  //     return data;
+  //   })
+  // console.log('Favourites: ',favourites);
   const checkForFavourite = (addMeal) => {
     for (let f of favourites) {
-      if (addMeal.id === f.id) {
+      if (addMeal.id === f.food_id) {
         alert('Already saved to your favourites!');
         return true;
       }
@@ -243,8 +247,6 @@ $(document).on('click', '.heart-food',(e) => {
   if (!checkForFavourite(addMeal)) {
     favourites.push(addMeal);
   }
-  $(e.target).addClass('bounce');
-  $(e.target).addClass('clicked');
   $.ajax({
     url: 'http://localhost:8080/food_items/favourites',
     method: 'POST',
@@ -253,6 +255,8 @@ $(document).on('click', '.heart-food',(e) => {
   .then((data) => {
     console.log(data);
   })
+  $(e.target).addClass('bounce');
+  $(e.target).addClass('clicked');
 });
 
 

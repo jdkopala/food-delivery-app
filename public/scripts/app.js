@@ -245,8 +245,12 @@ $(document).on('click', '.heart-food',(e) => {
   const checkForFavourite = (addMeal) => {
     for (let f of favourites) {
       if (addMeal.id === f.id) {
-        alert('Already saved to your favourites!');
-        return true;
+        $('.warning-msg').text('Already in your favourites!');
+        setTimeout(() => {
+        $('.food-error-msg').slideUp();
+        }, 2000)
+        return $(e.target).parent().parent().children('.food-error-msg').slideDown();
+
       }
     }
   }

@@ -10,17 +10,23 @@ const createMenuElement = (mealData) => {
       <div class="food-description">
         <p>${mealData.description}</p>
       </div>
+        <div class="food-error-msg">
+          <div class ="error-display">
+            <i class="fa-solid fa-triangle-exclamation fa-fade" id="warning-icon"></i>
+            <p class ="warning-msg"></p>
+          </div>
+        </div>
 
       <div class="food-detail">
         <i class="fa-solid fa-heart heart-food heart"></i>
         <div class="prep-time">prep-time: ${mealData.prep_time_minutes} mins</div>
         <i class="fa-solid fa-cart-shopping add-food"></i>
       </div>
-    </div>
+      </div>
 
-    <div class="food-img">
-      <img class="food-pic" src=${mealData.thumbnail_url}>
-    </div>
+      <div class="food-img">
+        <img class="food-pic" src=${mealData.thumbnail_url}>
+      </div>
   </article>`);
 
   return $meal;

@@ -92,6 +92,25 @@ body {
   margin-top: 24px;
 }
 
+.food-error-msg {
+  border: 5px solid #a3d0db;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 2px 55px 20px 55px;
+  display: none;
+}
+.food-error-msg .error-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.food-error-msg #warning-icon {
+  color: #ee775a;
+  padding: 3px 8px;
+  margin-top: 24px;
+}
+
 .bounce {
   animation: bounce 2s;
 }

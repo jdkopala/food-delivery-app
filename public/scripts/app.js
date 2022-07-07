@@ -1,5 +1,3 @@
-
-
 // Customer cart object
 let currentOrder = [];
 
@@ -234,11 +232,38 @@ $(document).on('click', '.add-food',(e) => {
   }, 3000);
 });
 
-$(document).on('click', '.heart-food', async function(e) {
+// $(document).on('click', '.heart-food', async function(e) {
+//   let addMeal = $(e.target).parent().parent().parent().data().orderObject;
+//   console.log('favouritesarray: ', favourites);
+//   const checkForFavourite = (addMeal) => {
+//     for (let f of favourites) {
+//       if (addMeal.id === f.id) {
+//         console.log('',addMeal.id)
+//         console.log('f: ', f.id)
+//         alert('Already saved to your favourites!');
+//         return true;
+//       }
+//       return false;
+//     }
+//   }
+//   if (!checkForFavourite(addMeal)) {
+//     favourites.push(addMeal);
+//     console.log('Pushed to favourites')
+//     $.ajax({
+//       url: 'http://localhost:8080/food_items/favourites',
+//       method: 'POST',
+//       data: { addMeal }
+//     });
+//   }
+//   $(e.target).addClass('bounce');
+//   $(e.target).addClass('clicked');
+// });
+
+$(document).on('click', '.heart-food',(e) => {
   let addMeal = $(e.target).parent().parent().parent().data().orderObject;
   const checkForFavourite = (addMeal) => {
     for (let f of favourites) {
-      if (addMeal.id === f.food_id) {
+      if (addMeal.id === f.id) {
         alert('Already saved to your favourites!');
         return true;
       }
@@ -246,17 +271,12 @@ $(document).on('click', '.heart-food', async function(e) {
   }
   if (!checkForFavourite(addMeal)) {
     favourites.push(addMeal);
+    $.ajax({
+      url: 'http://localhost:8080/food_items/favourites',
+      method: 'POST',
+      data: { addMeal }
+    });
   }
-  $.ajax({
-    url: 'http://localhost:8080/food_items/favourites',
-    method: 'POST',
-    data: { addMeal }
-  })
-  .then((data) => {
-    console.log(data);
-  })
-  $(e.target).addClass('bounce');
-  $(e.target).addClass('clicked');
 });
 
 
@@ -269,3 +289,5 @@ $(document).on('click', '.order-detail-button', function(e) {
     $(orderDetails).slideUp();
   }
 })
+
+console.log(fetchUserFavouritesData());

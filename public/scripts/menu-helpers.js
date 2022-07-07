@@ -15,6 +15,14 @@ const loadUserFavourites = () => {
     });
 };
 
+const fetchUserFavouritesData = () => {
+  $.get("/food_items/favourites")
+  .then((data) => {
+    console.log(data)
+    return data;
+    });
+};
+
 const loadCategory = (category) => {
   $.get(`/food_items/${category}`)
     .then((data) => {

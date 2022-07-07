@@ -89,7 +89,8 @@ $(document).ready(function () {
     $('.customer-login').css('cursor', 'pointer')
   });
   // When a user clicks on the logo, it returns to the main menu
-  $('.nav-logo').on('click', () => {
+  $('.nav-logo').on('click', (e) => {
+    $(e.target).siblings('.select-menu').children().children('.btn-text').text('Currently Craving?')
     loadMenu();
   });
   // Clicking on the cart button brings up the generated checkout pagea

@@ -250,7 +250,6 @@ $(document).on('click', '.heart-food',(e) => {
         $('.food-error-msg').slideUp();
         }, 2000)
         return $(e.target).parent().parent().children('.food-error-msg').slideDown();
-
       }
     }
   }
@@ -262,6 +261,10 @@ $(document).on('click', '.heart-food',(e) => {
       data: { addMeal }
     });
   }
+  $(e.target).addClass('bounce');
+  setTimeout(() => {
+    $(e.target).removeClass('bounce');
+  }, 3000)
 });
 
 // On the dashboard for client and admin side, this slides out the div containing the details for each order.

@@ -50,7 +50,6 @@ module.exports = (db) => {
             `
           }
         }
-        console.log(query)
         return db.query(query)
           .then (() => {
             return res.send('success')

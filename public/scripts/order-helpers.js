@@ -1,4 +1,5 @@
-
+// This takes in the array of objects the user currently has set for their cart,
+// and generates HTMl for each meal on the checkout page.
 const generateCart = (currentOrder) => {
   let orderTotal = 0;
   let prepTime = 0;
@@ -58,6 +59,8 @@ const generateCart = (currentOrder) => {
   $('.main-page').append(checkout);
 };
 
+// This function takes in the customers order and generates a message containing
+// The dollar amount and the estimated time until it will be available for pickup.
 const generateSMS = (currentOrder) => {
   let prepTime = 0;
   let orderTotal = 0;

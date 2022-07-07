@@ -1,4 +1,4 @@
-
+// Sends a GET request to load the details of an order by it's ID
 const loadOrderDetails = (orderId) => {
   return $.get(`/order_items/${orderId}`)
   .then((data) => {
@@ -6,7 +6,8 @@ const loadOrderDetails = (orderId) => {
   })
 };
 
-
+// Generate HTML to store and display the admin side dashboard
+// Each listing is given buttons for the management of the order, and the items included
 const createOrderListItem = async (customerOrder) => {
   let orderDetails = await loadOrderDetails(customerOrder.id)
   let status = `${customerOrder.status}`
@@ -57,6 +58,8 @@ const createOrderListItem = async (customerOrder) => {
   return order
 };
 
+// This generates HTML for the customer side order dashboard
+// Each order is giving it's own listing and slide out order details
 const createCustomerOrderListItem = async (customerOrder) => {
   let orderDetails = await loadOrderDetails(customerOrder.id)
   let orderTotal = 0;
@@ -95,6 +98,8 @@ const createCustomerOrderListItem = async (customerOrder) => {
   return order
 };
 
+// This function takes the list of orders from the database,
+// and populates them using the admin side function to create HTML
 const renderAdminOrderList = async (data) => {
   $('.main-page').append('<header id="order-header-info">Customer Orders</header>')
   for (let d of data) {
@@ -105,6 +110,8 @@ const renderAdminOrderList = async (data) => {
   };
 };
 
+// This function takes the list of orders from the database,
+// and populates them using the CUSTOMER dashboard HTML
 const renderCustomerOrderList = async (data) => {
   $('.main-page').append('<header id="order-header-info">Your Orders</header>')
   for (let d of data) {
@@ -115,6 +122,8 @@ const renderCustomerOrderList = async (data) => {
   };
 };
 
+// This is the beginning of the admin dashboard function chain.
+// It empties the main page, and repopulates it using the functions above for the admin dashboard
 const loadOrders = () => {
   $.get('/orders')
   .then((data) => {
@@ -123,6 +132,8 @@ const loadOrders = () => {
   })
 };
 
+// This is the beginning of the customer dashboard function chain.
+// It empties the main page, and repopulates it using the functions above for the customer dashboard
 const loadCustomerOrders = () => {
   $.get('/orders')
   .then((data) => {

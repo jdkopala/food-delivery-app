@@ -46,7 +46,6 @@ const loadMenu = () => {
 const loadUserFavourites = () => {
   $.get("/food_items/favourites")
   .then((data) => {
-    console.log(data)
     renderMenu(data);
     });
 };
@@ -55,7 +54,6 @@ const loadUserFavourites = () => {
 const fetchUserFavouritesData = () => {
   $.get("/food_items/favourites")
   .then((data) => {
-    console.log(data)
     return data;
     });
 };

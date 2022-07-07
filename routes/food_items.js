@@ -27,7 +27,8 @@ module.exports = (db) => {
   // GET items stored in the user_favourites table. Need enough info to populate menu
   router.get("/favourites", (req, res) => {
     return db.query(`
-    SELECT user_favourites.*,
+    SELECT user_favourites.customer_id,
+    user_favourites.food_id as id,
     food_items.name,
     food_items.description,
     food_items.prep_time_minutes,

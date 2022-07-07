@@ -37,7 +37,6 @@ module.exports = (db) => {
     `
     return db.query(query)
       .then((data) => {
-        console.log('order_id ', data.rows[0].id);
         query = `
         INSERT INTO order_items (order_id, food_id)
         `
@@ -54,7 +53,6 @@ module.exports = (db) => {
         console.log(query)
         return db.query(query)
           .then (() => {
-            console.log(data)
             return res.send('success')
           })
       })

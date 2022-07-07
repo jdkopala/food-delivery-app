@@ -10,6 +10,7 @@ const router = express.Router();
 const db = require('../db/db');
 
 module.exports = (db) => {
+  // GET items from the food items table
   router.get("/", (req, res) => {
     let query = `SELECT * FROM food_items ORDER BY price_cents DESC;`;
     db.query(query)
@@ -23,7 +24,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-
+  // GET items stored in the user_favourites table. Need enough info to populate menu
   router.get("/favourites", (req, res) => {
     return db.query(`
     SELECT user_favourites.*,
@@ -44,7 +45,7 @@ module.exports = (db) => {
       res.json(data.rows);
     })
   });
-
+  // POST to favourites, stores an item in the favourites table
   router.post("/favourites", (req, res) => {
     let meal = req.body.addMeal;
     let food_id = meal.id
@@ -57,7 +58,7 @@ module.exports = (db) => {
       return res.json(data.rows);
     })
   });
-
+  // Retrieve items from the food items table based on the menu_category column
   router.get("/:category", (req, res) => {
     let category = req.params.category;
     return db.query(`

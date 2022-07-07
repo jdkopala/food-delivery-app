@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
+  // Get request to grab users from the users table
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {

@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../db/db');
 
 module.exports = (db) => {
+  // GET order id and customer id for orders from the table
   router.get("/", (req, res) => {
     let query = `
     SELECT orders.*, users.name
@@ -25,7 +26,8 @@ module.exports = (db) => {
           });
       });
   });
-
+  // POST to make changes to order in the database,
+  // this request associates an order id with the items in the order in a many to many table
   router.post('/', (req, res) => {
     let currentOrder = req.body.currentOrder
     let query = `
@@ -57,7 +59,7 @@ module.exports = (db) => {
           })
       })
   })
-
+  // PUT request to update order status to confirmed
   router.put('/:id/confirm', (req, res) => {
     let id = req.params.id
     console.log('id: ', id);
@@ -71,7 +73,7 @@ module.exports = (db) => {
       res.send('success')
     })
   })
-
+  // PUT request to update order status to declined
   router.put('/:id/decline', (req, res) => {
     let id = req.params.id
     console.log('id: ', id);
@@ -85,7 +87,7 @@ module.exports = (db) => {
       res.send('success')
     })
   })
-
+  // PUT request to update order status to Complete
   router.put('/:id/complete', (req, res) => {
     let id = req.params.id
     console.log('id: ', id);

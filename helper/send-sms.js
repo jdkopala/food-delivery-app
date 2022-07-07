@@ -5,6 +5,7 @@ const client = require('twilio')(accountSid, authToken);
 
 
 const sendMsg = function(body) {
+  // Twilio function hard coded with a demo phone number. Sends messages from our app to Ava's phone number.
   client.messages
     .create({
        body,

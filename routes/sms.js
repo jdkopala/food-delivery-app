@@ -5,6 +5,7 @@ const db = require('../db/db');
 const sendMsg = require('../helper/send-sms');
 
 module.exports = () => {
+  // POST request to send data out to restaurant/customer for notification
   router.post("/", (req, res) => {
     console.log(req.body.messageToCustomer);
     const message = req.body.messageToCustomer

@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../db/db');
 
 module.exports = (db) => {
+  // GET items from the database orders table so they can be reviewed
   router.get("/:id", (req, res) => {
     let orderId = req.params.id;
     let query = `
